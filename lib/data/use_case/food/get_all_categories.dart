@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../presentation/feature/news/models/top_anime_item_model.dart';
+import '../../../presentation/feature/top_page/domain/category_item_model.dart';
 import '../../api/api_client.dart';
 import '../../repository/food_recipes_repository.dart';
 
@@ -7,7 +7,7 @@ part 'get_all_categories.g.dart';
 
 /// provider for all Categories
 @riverpod
-Future<List<TopAnimeItemModel>> allRecipeCategories(
+Future<List<CategoryItemModel>> allRecipeCategories(
   AllRecipeCategoriesRef ref, {
   required ApiClient apiClient,
   required FoodRecipesRepository recipesRepository,
@@ -19,7 +19,7 @@ Future<List<TopAnimeItemModel>> allRecipeCategories(
     return result.categories!
         .map(
           (category) =>
-              TopAnimeItemModel.fromGetAllCategory(category: category),
+              CategoryItemModel.fromGetAllCategory(category: category),
         )
         .toList();
   }

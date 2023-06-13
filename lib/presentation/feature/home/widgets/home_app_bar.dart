@@ -38,7 +38,7 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   }
 
   Widget buildTitle(BuildContext context) {
-    return const Text('Flutter Template');
+    return const Text('Food Recipe');
   }
 
   List<Widget>? buildActions(BuildContext context) {

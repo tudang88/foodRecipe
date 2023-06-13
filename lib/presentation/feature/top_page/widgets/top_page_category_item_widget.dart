@@ -6,14 +6,14 @@ import '../../../../constants/resources/colors.dart';
 import '../../../../constants/resources/images.dart';
 import '../../../../constants/routes.dart';
 import '../../../common_widgets/space_box.dart';
-import '../models/top_anime_item_model.dart';
+import '../domain/category_item_model.dart';
 
-class TopAnimeItemWidget extends ConsumerWidget {
-  const TopAnimeItemWidget({
-    required this.animeNewsItemModel,
+class TopPageCategoryItemWidget extends ConsumerWidget {
+  const TopPageCategoryItemWidget({
+    required this.categoryItemModel,
     Key? key,
   }) : super(key: key);
-  final TopAnimeItemModel animeNewsItemModel;
+  final CategoryItemModel categoryItemModel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,7 +21,7 @@ class TopAnimeItemWidget extends ConsumerWidget {
       onTap: () => context.pushNamed(
         RouteNames.animeDetail,
         params: {
-          RouteParams.animeDetailId: animeNewsItemModel.id.toString(),
+          RouteParams.animeDetailId: categoryItemModel.id,
         },
       ),
       child: GridTile(
@@ -36,14 +36,14 @@ class TopAnimeItemWidget extends ConsumerWidget {
           child: GridTileBar(
             backgroundColor: AppColors.light.mediumBlack,
             title: _GridTitleText(
-              animeNewsItemModel.titleEn,
+              categoryItemModel.title,
               TopAnimeItemTextType.title,
-              animeNewsItemModel.id,
+              int.parse(categoryItemModel.id),
             ),
             subtitle: _GridTitleText(
-              animeNewsItemModel.titleJp,
+              categoryItemModel.title,
               TopAnimeItemTextType.subtitle,
-              animeNewsItemModel.id,
+              int.parse(categoryItemModel.id),
             ),
           ),
         ),
@@ -53,10 +53,10 @@ class TopAnimeItemWidget extends ConsumerWidget {
             borderRadius: BorderRadius.circular(4),
           ),
           clipBehavior: Clip.antiAlias,
-          child: animeNewsItemModel.imageUrl.isNotEmpty
+          child: categoryItemModel.imageUrl.isNotEmpty
               ? FadeInImage.assetNetwork(
                   placeholder: AppImages.loading,
-                  image: animeNewsItemModel.imageUrl,
+                  image: categoryItemModel.imageUrl,
                 )
               : const SpaceBox(),
         ),

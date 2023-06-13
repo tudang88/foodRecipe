@@ -1,34 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../data/model/api/request/get_top_anime_request.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
-import '../../../data/providers/my_anime_list_repository_provider.dart';
-import '../../../data/use_case/anime/get_top_anime.dart';
 import '../../../data/use_case/food/get_all_categories.dart';
-import 'widgets/top_anime_item_widget.dart';
+import 'widgets/top_page_category_item_widget.dart';
 
-class TopAnimePage extends ConsumerWidget {
-  const TopAnimePage({Key? key}) : super(key: key);
+class TopPage extends ConsumerWidget {
+  const TopPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final topAnime = ref.watch(
-    //   topAnimeProvider(
-    //     getTopAnimeRequest: const GetTopAnimeRequest(
-    //       type: 'tv',
-    //       filter: 'airing',
-    //       limit: 10,
-    //       page: 1,
-    //     ),
-    //     myAnimeListRepository: ref.watch(
-    //       myAnimeListRepositoryProvider,
-    //     ),
-    //     apiClient: ref.watch(apiClientProvider),
-    //   ),
-    // );
-    final topAnime = ref.watch(
+    /// get recipes repository from river_pod provider
+    final allCategories = ref.watch(
       allRecipeCategoriesProvider(
         apiClient: ref.watch(apiClientProvider),
         recipesRepository: ref.watch(foodRecipesRepositoryProvider),
@@ -36,10 +20,10 @@ class TopAnimePage extends ConsumerWidget {
     );
     return Column(
       children: [
-        topAnime.when(
+        allCategories.when(
           error: (err, stack) => Text('Err $err'),
           loading: () => const Center(child: CircularProgressIndicator()),
-          data: (topAnime) {
+          data: (categories) {
             return Expanded(
               child: GridView.count(
                 shrinkWrap: true,
@@ -50,8 +34,8 @@ class TopAnimePage extends ConsumerWidget {
                 padding: const EdgeInsets.all(8),
                 childAspectRatio: 1,
                 children: [
-                  for (final anime in topAnime)
-                    TopAnimeItemWidget(animeNewsItemModel: anime)
+                  for (final category in categories)
+                    TopPageCategoryItemWidget(categoryItemModel: category)
                 ],
               ),
             );
