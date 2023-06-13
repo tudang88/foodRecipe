@@ -17,7 +17,7 @@ class GetAllCategoriesResponse with _$GetAllCategoriesResponse {
 @freezed
 class FoodCategory with _$FoodCategory {
   const factory FoodCategory({
-    @JsonKey(name: 'idCategory') int? categoryId,
+    @JsonKey(name: 'idCategory') String? categoryId,
     @JsonKey(name: 'strCategory') String? categoryName,
     @JsonKey(name: 'strCategoryThumb') String? categoryThumbLink,
     @JsonKey(name: 'strCategoryDescription') String? categoryDescription,

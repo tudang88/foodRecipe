@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../model/api/response/get_all_categories_response.dart';
 import '../model/api/response/get_top_anime_response.dart';
 import 'api_paths.dart';
 
@@ -17,4 +18,9 @@ abstract class ApiClient {
     @Query('page') required int page,
     @Query('limit') required int limit,
   });
+
+  /// get all category by GET
+  /// www.themealdb.com/api/json/v1/1/categories.php
+  @GET(ApiPaths.getRecipesAllCategories)
+  Future<GetAllCategoriesResponse> getAllCategories();
 }

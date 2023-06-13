@@ -17,7 +17,7 @@ class AppFlavor {
 
 class AppFlavorValue {
   static final AppFlavor development = AppFlavor(
-    apiConfig: ApiConfig('https://api.jikan.moe/v4/'),
+    apiConfig: ApiConfig('https://www.themealdb.com'),
     appFlavorType: AppFlavorType.development,
   );
   static final AppFlavor production = AppFlavor(

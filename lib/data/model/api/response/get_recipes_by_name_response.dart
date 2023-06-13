@@ -30,7 +30,7 @@ class GetRecipeByIdResponse with _$GetRecipeByIdResponse {
 @freezed
 class RecipeDetails with _$RecipeDetails {
   const factory RecipeDetails({
-    @JsonKey(name: 'idMeal') int? recipeId,
+    @JsonKey(name: 'idMeal') String? recipeId,
     @JsonKey(name: 'strMeal') String? recipeName,
     @JsonKey(name: 'strCategory') String? categoryName,
     @JsonKey(name: 'strArea') String? area,

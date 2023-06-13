@@ -20,7 +20,7 @@ class RecipeShortInfo with _$RecipeShortInfo {
   const factory RecipeShortInfo({
     @JsonKey(name: 'strMeal') String? recipeName,
     @JsonKey(name: 'strMealThumb') String? recipeThumbLink,
-    @JsonKey(name: 'idMeal') int? recipeId,
+    @JsonKey(name: 'idMeal') String? recipeId,
   }) = _RecipeShortInfo;
   factory RecipeShortInfo.fromJson(Map<String, dynamic> json) =>
       _$RecipeShortInfoFromJson(json);
