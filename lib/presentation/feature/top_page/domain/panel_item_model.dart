@@ -11,8 +11,9 @@ class PanelRecipeItem with _$PanelRecipeItem {
     required String recipeThumb,
   }) = _PanelRecipeItem;
 
-  factory PanelRecipeItem.fromGetRecipesOfCategoryResponse(
-      {required RecipeShortInfo recipeShortInfo}) {
+  factory PanelRecipeItem.fromGetRecipesOfCategoryResponse({
+    required RecipeShortInfo recipeShortInfo,
+  }) {
     return PanelRecipeItem(
       recipeId: recipeShortInfo.recipeId!,
       recipeTitle: recipeShortInfo.recipeName!,

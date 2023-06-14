@@ -7,7 +7,9 @@ import '../../repository/food_recipes_repository.dart';
 
 part 'get_panel_recipes.g.dart';
 
-@riverpod
+/// provider holds the list of item show on top panel
+/// turn off autoDispose for top panel
+@Riverpod(keepAlive: true)
 Future<List<PanelRecipeItem>> panelRecipes(
   PanelRecipesRef ref, {
   required ApiClient apiClient,

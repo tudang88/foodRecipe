@@ -16,14 +16,8 @@ class TopPagePanelWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = CarouselController();
     return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            'assets/images/food_table.jpeg',
-          ),
-          fit: BoxFit.fill,
-        ),
-      ),
+      color: Colors.white10,
+      padding: const EdgeInsets.only(top: 8),
       child: SizedBox(
         width: double.infinity,
         height: 200,
@@ -53,7 +47,6 @@ class TopPagePanelWidget extends ConsumerWidget {
               options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
-                aspectRatio: 2,
                 onPageChanged: (index, reason) {},
               ),
             ),

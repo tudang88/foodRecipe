@@ -31,7 +31,7 @@ abstract class ApiClient {
     @Query('s') required String keyword,
   });
 
-  /// get
+  /// get recipe detail by id
   @GET(ApiPaths.getRecipeById)
   Future<GetRecipeByIdResponse> getRecipeById({
     @Query('i') required String recipeId,

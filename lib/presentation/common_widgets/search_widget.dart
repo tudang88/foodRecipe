@@ -10,6 +10,7 @@ class CustomSearchWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
       child: TextField(
         controller: controller,
+        textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.search),
           hintText: 'Enter a recipe',

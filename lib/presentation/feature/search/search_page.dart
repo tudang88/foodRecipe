@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../constants/constants.dart';
 import '../../common_widgets/search_widget.dart';
+import 'widgets/search_recipe_list_item.dart';
 
 class SearchPage extends ConsumerWidget {
   const SearchPage({
@@ -22,12 +23,20 @@ class SearchPage extends ConsumerWidget {
           },
         ),
         const Padding(
-          padding: EdgeInsets.only(left: 8),
+          padding: EdgeInsets.only(left: 8, bottom: 8),
           child: Text(
             'Here you are',
             style: Constants.headTextStyle,
           ),
         ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return const SearchResultListRecipeItem();
+            },
+          ),
+        )
       ],
     );
   }

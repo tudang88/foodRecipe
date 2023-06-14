@@ -31,4 +31,10 @@ class Constants {
     fontWeight: FontWeight.bold,
     color: Colors.orangeAccent,
   );
+
+  static const contentTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.blueGrey,
+  );
 }
