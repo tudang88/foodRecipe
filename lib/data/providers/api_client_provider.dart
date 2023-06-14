@@ -7,8 +7,10 @@ import 'app_flavor_provider.dart';
 part 'api_client_provider.g.dart';
 
 @riverpod
-ApiClient apiClient(ApiClientRef ref) => ApiClient(ref.read(dioProvider),
-    baseUrl: ref.read(appFlavorProvider).apiConfig.apiUrl);
+ApiClient apiClient(ApiClientRef ref) => ApiClient(
+      ref.read(dioProvider),
+      baseUrl: ref.read(appFlavorProvider).apiConfig.apiUrl,
+    );
 
 @riverpod
 Dio dio(DioRef ref) {
