@@ -14,7 +14,7 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.orangeAccent,
       toolbarHeight: kToolbarHeight,
       elevation: 0,
       leadingWidth: leadingWidth,

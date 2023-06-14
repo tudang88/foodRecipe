@@ -44,12 +44,12 @@ class _HomePageState extends BasePageState<HomePage>
         iconSize: 30,
         items: [
           BottomNavigationBarItem(
-            label: AppLocalizations.of(context)!.home_tab_top_anime,
-            icon: const Icon(Icons.newspaper),
+            label: AppLocalizations.of(context)!.home_tab_top_page,
+            icon: const Icon(Icons.home),
           ),
           BottomNavigationBarItem(
-            label: AppLocalizations.of(context)!.home_tab_profile,
-            icon: const Icon(Icons.person),
+            label: AppLocalizations.of(context)!.home_tab_search,
+            icon: const Icon(Icons.search),
           ),
         ],
       ),

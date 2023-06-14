@@ -5,6 +5,7 @@ import '../../../constants/constants.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
 import '../../../data/use_case/food/get_all_categories.dart';
+import '../../../data/use_case/panel/get_panel_recipes.dart';
 import 'widgets/top_page_category_item_widget.dart';
 import 'widgets/top_page_panel_widget.dart';
 
@@ -14,16 +15,26 @@ class TopPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     /// get recipes repository from river_pod provider
+    final apiClient = ref.watch(apiClientProvider);
+    final repository = ref.watch(foodRecipesRepositoryProvider);
     final allCategories = ref.watch(
       allRecipeCategoriesProvider(
-        apiClient: ref.watch(apiClientProvider),
-        recipesRepository: ref.watch(foodRecipesRepositoryProvider),
+        apiClient: apiClient,
+        recipesRepository: repository,
       ),
     );
+    final panelItems = ref.watch(panelRecipesProvider(
+        apiClient: apiClient, recipesRepository: repository));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TopPagePanelWidget(),
+        TopPagePanelWidget(
+          panelItems: panelItems,
+          onClick: (idStr) {
+            /// process on click here
+            print('RecipeId:$idStr');
+          },
+        ),
         Container(
           color: Colors.yellowAccent,
           height: 50,

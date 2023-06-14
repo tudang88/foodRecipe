@@ -6,5 +6,17 @@
   "home_tab_profile": "プロフィール",
   "@home_tab_profile": {
     "description": ""
+  },
+  "home_tab_top_page": "Home",
+  "@home_tab_top_page": {
+    "description": ""
+  },
+  "home_tab_search": "Search",
+  "@home_tab_search": {
+    "description": ""
+  },
+  "home_tab_favorite": "Favorite",
+  "@home_tab_favorite": {
+    "description": ""
   }
 }
