@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../constants/constants.dart';
+import '../domain/search_item_model.dart';
 
 class SearchResultListRecipeItem extends ConsumerWidget {
   const SearchResultListRecipeItem({
+    required this.recipe,
     Key? key,
   }) : super(key: key);
-
+  final SearchResultItemModel? recipe;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Card(
@@ -25,10 +27,10 @@ class SearchResultListRecipeItem extends ConsumerWidget {
           children: [
             Container(
               width: 180,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                    'https://www.themealdb.com/images/category/beef.png',
+                    recipe!.recipeThumbnail,
                   ),
                   fit: BoxFit.fill,
                 ),
@@ -36,21 +38,20 @@ class SearchResultListRecipeItem extends ConsumerWidget {
                 shape: BoxShape.circle,
               ),
             ),
-            const Expanded(
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
                     child: Text(
-                      'Category: Beef',
+                      'Category: ${recipe!.recipeCategory}',
                       style: Constants.headTextStyle,
                     ),
                   ),
-                  Expanded(
-                    child: Text(
-                      'This is Beef Stake from California',
-                      style: Constants.contentTextStyle,
-                    ),
+                  Text(
+                    recipe!.recipeName,
+                    style: Constants.contentTextStyle,
                   )
                 ],
               ),
