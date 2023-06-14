@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../constants/constants.dart';
 import '../../../common_widgets/space_box.dart';
 
 const double leadingWidth = 100;
@@ -13,12 +14,12 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.red,
       toolbarHeight: kToolbarHeight,
       elevation: 0,
       leadingWidth: leadingWidth,
       automaticallyImplyLeading: false,
-      leading: buildLeftContent(context),
+      leading: null, //buildLeftContent(context),
       centerTitle: true,
       title: buildTitle(context),
       actions: buildActions(context),
@@ -38,7 +39,10 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   }
 
   Widget buildTitle(BuildContext context) {
-    return const Text('Food Recipe');
+    return const Text(
+      'Food Recipe',
+      style: Constants.titleTextStyle,
+    );
   }
 
   List<Widget>? buildActions(BuildContext context) {

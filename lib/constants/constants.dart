@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Constants {
   Constants._private();
 
@@ -17,4 +19,10 @@ class Constants {
       '[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]';
   static const halfWidth =
       '[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]';
+
+  static const titleTextStyle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
 }
