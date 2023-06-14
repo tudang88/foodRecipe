@@ -13,7 +13,9 @@ Future<List<PanelRecipeItem>> panelRecipes(
   required String category,
 }) async {
   final result = await recipesRepository.getAllRecipesOfCategory(
-      apiClient: apiClient, category: category);
+    apiClient: apiClient,
+    category: category,
+  );
 
   if (result.meals == null) {
     return [];

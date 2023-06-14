@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../constants/constants.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
 import '../../../data/use_case/food/get_all_categories.dart';
 import 'widgets/top_page_category_item_widget.dart';
+import 'widgets/top_page_panel_widget.dart';
 
 class TopPage extends ConsumerWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -19,7 +21,21 @@ class TopPage extends ConsumerWidget {
       ),
     );
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const TopPagePanelWidget(),
+        Container(
+          color: Colors.yellowAccent,
+          height: 50,
+        ),
+        const Padding(
+          padding: EdgeInsets.all(8),
+          child: Text(
+            'Categories 🍱🍣',
+            textAlign: TextAlign.left,
+            style: Constants.headTextStyle,
+          ),
+        ),
         allCategories.when(
           error: (err, stack) => Text('Err $err'),
           loading: () => const Center(child: CircularProgressIndicator()),

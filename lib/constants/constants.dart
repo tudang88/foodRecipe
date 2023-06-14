@@ -25,4 +25,10 @@ class Constants {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
+
+  static const headTextStyle = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Colors.red,
+  );
 }
