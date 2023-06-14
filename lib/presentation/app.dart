@@ -43,7 +43,7 @@ class _AppState extends ConsumerState<App> {
           theme: Themes.appTheme(Brightness.light),
           darkTheme: Themes.appTheme(Brightness.dark),
           themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-          title: 'MonstarLab Riverpod Template',
+          title: 'Recipe Search',
           routerConfig: ref.read(goRouterProvider),
         );
       },

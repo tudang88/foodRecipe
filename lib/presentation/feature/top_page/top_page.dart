@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,6 +10,7 @@ import '../../../data/use_case/food/get_all_categories.dart';
 import '../../../data/use_case/panel/get_panel_recipes.dart';
 import 'widgets/top_page_category_item_widget.dart';
 import 'widgets/top_page_panel_widget.dart';
+import 'widgets/top_page_search_widget.dart';
 
 class TopPage extends ConsumerWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -23,8 +26,12 @@ class TopPage extends ConsumerWidget {
         recipesRepository: repository,
       ),
     );
-    final panelItems = ref.watch(panelRecipesProvider(
-        apiClient: apiClient, recipesRepository: repository));
+    final panelItems = ref.watch(
+      panelRecipesProvider(
+        apiClient: apiClient,
+        recipesRepository: repository,
+      ),
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -32,12 +39,13 @@ class TopPage extends ConsumerWidget {
           panelItems: panelItems,
           onClick: (idStr) {
             /// process on click here
-            print('RecipeId:$idStr');
+            log('RecipeId:$idStr');
           },
         ),
-        Container(
-          color: Colors.yellowAccent,
-          height: 50,
+        TopPageSearchWidget(
+          onEditCompleted: (keyword) {
+            log('Keyword: $keyword');
+          },
         ),
         const Padding(
           padding: EdgeInsets.all(8),
