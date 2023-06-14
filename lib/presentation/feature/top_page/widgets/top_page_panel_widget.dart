@@ -42,7 +42,11 @@ class TopPagePanelWidget extends ConsumerWidget {
                   },
                   child: Card(
                     elevation: 5,
-                    child: Image.network(imageUrl, fit: BoxFit.cover),
+                    child: Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                      width: 800,
+                    ),
                   ),
                 );
               },

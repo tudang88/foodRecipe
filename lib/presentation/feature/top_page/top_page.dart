@@ -8,9 +8,9 @@ import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
 import '../../../data/use_case/food/get_all_categories.dart';
 import '../../../data/use_case/panel/get_panel_recipes.dart';
+import '../../common_widgets/search_widget.dart';
 import 'widgets/top_page_category_item_widget.dart';
 import 'widgets/top_page_panel_widget.dart';
-import 'widgets/top_page_search_widget.dart';
 
 class TopPage extends ConsumerWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class TopPage extends ConsumerWidget {
             log('RecipeId:$idStr');
           },
         ),
-        TopPageSearchWidget(
+        CustomSearchWidget(
           onEditCompleted: (keyword) {
             log('Keyword: $keyword');
           },

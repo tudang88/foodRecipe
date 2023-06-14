@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../common/app_theme_provider.dart';
 
-class ProfilePage extends ConsumerWidget {
-  const ProfilePage({super.key});
+class SettingPage extends ConsumerWidget {
+  const SettingPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

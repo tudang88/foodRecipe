@@ -29,6 +29,6 @@ class Constants {
   static const headTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
-    color: Colors.red,
+    color: Colors.orangeAccent,
   );
 }
