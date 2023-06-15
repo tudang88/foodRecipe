@@ -19,9 +19,9 @@ class TopPageCategoryItemWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () => context.pushNamed(
-        RouteNames.animeDetail,
+        RouteNames.categoryDetail,
         params: {
-          RouteParams.animeDetailId: categoryItemModel.id,
+          RouteParams.categoryId: categoryItemModel.id,
         },
       ),
       child: GridTile(

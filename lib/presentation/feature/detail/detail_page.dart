@@ -5,7 +5,7 @@ import 'widgets/detail_app_bar.dart';
 
 class DetailPage extends BasePageStateless {
   const DetailPage({required this.id, Key? key}) : super(key: key);
-  final int id;
+  final String id;
 
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context) {

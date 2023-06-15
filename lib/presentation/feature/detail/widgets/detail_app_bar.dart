@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../constants/constants.dart';
 import '../../../common_widgets/space_box.dart';
 
 const double leadingWidth = 100;
@@ -14,7 +15,7 @@ class DetailAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.orangeAccent,
       toolbarHeight: kToolbarHeight,
       elevation: 0,
       leadingWidth: leadingWidth,
@@ -44,7 +45,10 @@ class DetailAppBar extends ConsumerWidget implements PreferredSizeWidget {
   }
 
   Widget buildTitle(BuildContext context) {
-    return const Text('Flutter Template');
+    return const Text(
+      'Food Recipe',
+      style: Constants.titleTextStyle,
+    );
   }
 
   List<Widget>? buildActions(BuildContext context) {

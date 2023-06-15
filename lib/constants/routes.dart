@@ -3,17 +3,18 @@ class RoutePaths {
 
   static const root = '/';
 
-  static const animeDetail = 'anime/:id';
+  static const categoryDetail = 'category/:id';
 }
 
 class RouteNames {
   RouteNames._private();
 
-  static const animeDetail = 'anime_detail';
+  static const categoryDetail = 'category_detail';
 }
 
 class RouteParams {
   RouteParams._private();
 
-  static const animeDetailId = 'id';
+  // static const recipeId = 'id';
+  static const categoryId = 'id';
 }

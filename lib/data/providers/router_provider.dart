@@ -17,11 +17,11 @@ GoRouter goRouter(ref) => GoRouter(
           },
           routes: [
             GoRoute(
-              name: RouteNames.animeDetail,
-              path: RoutePaths.animeDetail,
+              name: RouteNames.categoryDetail,
+              path: RoutePaths.categoryDetail,
               builder: (context, state) {
                 return DetailPage(
-                  id: int.parse(state.params[RouteParams.animeDetailId]!),
+                  id: state.params[RouteParams.categoryId]!,
                 );
               },
             ),
