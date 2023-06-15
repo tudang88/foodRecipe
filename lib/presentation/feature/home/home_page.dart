@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../constants/resources/colors.dart';
+import '../../../data/providers/common_provider.dart';
 import '../../common_widgets/base/base_page.dart';
 import '../search/search_page.dart';
 import '../top_page/top_page.dart';
@@ -16,14 +18,7 @@ class HomePage extends BasePage {
 
 class _HomePageState extends BasePageState<HomePage>
     with WidgetsBindingObserver {
-  int _currentIndex = 0;
   final List _screens = [const TopPage(), const SearchPage()];
-
-  void _updateIndex(int value) {
-    setState(() {
-      _currentIndex = value;
-    });
-  }
 
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context) {
@@ -32,27 +27,34 @@ class _HomePageState extends BasePageState<HomePage>
 
   @override
   Widget buildBody(BuildContext context) {
-    return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: _updateIndex,
-        selectedItemColor: context.colors.mediumBlue,
-        selectedFontSize: 13,
-        unselectedFontSize: 13,
-        iconSize: 30,
-        items: [
-          BottomNavigationBarItem(
-            label: AppLocalizations.of(context)!.home_tab_top_page,
-            icon: const Icon(Icons.home),
+    return Consumer(
+      builder: (context, ref, child) {
+        final currentIndex = ref.watch(currentTabProvider);
+        return Scaffold(
+          body: _screens[currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentIndex,
+            onTap: (value) {
+              ref.watch(currentTabProvider.notifier).update((state) => value);
+            },
+            selectedItemColor: context.colors.mediumBlue,
+            selectedFontSize: 13,
+            unselectedFontSize: 13,
+            iconSize: 30,
+            items: [
+              BottomNavigationBarItem(
+                label: AppLocalizations.of(context)!.home_tab_top_page,
+                icon: const Icon(Icons.home),
+              ),
+              BottomNavigationBarItem(
+                label: AppLocalizations.of(context)!.home_tab_search,
+                icon: const Icon(Icons.search),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            label: AppLocalizations.of(context)!.home_tab_search,
-            icon: const Icon(Icons.search),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

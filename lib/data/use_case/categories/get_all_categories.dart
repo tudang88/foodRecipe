@@ -6,7 +6,7 @@ import '../../repository/food_recipes_repository.dart';
 part 'get_all_categories.g.dart';
 
 /// provider for all Categories
-@riverpod
+@Riverpod(keepAlive: true)
 Future<List<CategoryItemModel>> allRecipeCategories(
   AllRecipeCategoriesRef ref, {
   required ApiClient apiClient,

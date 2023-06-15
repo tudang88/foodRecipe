@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../constants/constants.dart';
 import '../../../data/providers/api_client_provider.dart';
+import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
 import '../../../data/use_case/categories/get_all_categories.dart';
 import '../../../data/use_case/panel/get_panel_recipes.dart';
@@ -45,6 +46,11 @@ class TopPage extends ConsumerWidget {
         CustomSearchWidget(
           onEditCompleted: (keyword) {
             log('Keyword: $keyword');
+            if (keyword != '') {
+              // transition to Search Tab and perfom search
+              ref.watch(currentTabProvider.notifier).update((state) => 1);
+              ref.watch(keywordProvider.notifier).update((state) => keyword);
+            }
           },
         ),
         const Padding(
