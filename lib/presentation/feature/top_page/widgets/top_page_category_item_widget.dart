@@ -34,7 +34,7 @@ class TopPageCategoryItemWidget extends ConsumerWidget {
           ),
           clipBehavior: Clip.antiAlias,
           child: GridTileBar(
-            backgroundColor: AppColors.light.mediumBlack,
+            backgroundColor: AppColors.light.orangeAccent,
             title: _GridTitleText(
               categoryItemModel.title,
               TopAnimeItemTextType.title,

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  const AppColors({
-    required this.mainText,
-    required this.subTextDark,
-    required this.subTextLight,
-    required this.border,
-    required this.disable,
-    required this.white,
-    required this.black,
-    required this.lightBlack,
-    required this.mediumBlack,
-    required this.lightBlue,
-    required this.mediumBlue,
-  });
+  const AppColors(
+      {required this.mainText,
+      required this.subTextDark,
+      required this.subTextLight,
+      required this.border,
+      required this.disable,
+      required this.white,
+      required this.black,
+      required this.lightBlack,
+      required this.mediumBlack,
+      required this.lightBlue,
+      required this.mediumBlue,
+      required this.orangeAccent});
 
   /// Main Text
   final Color mainText;
@@ -48,19 +48,22 @@ class AppColors {
   /// Medium Blue
   final Color mediumBlue;
 
+  /// orange accent
+  final Color orangeAccent;
+
   static const light = AppColors(
-    mainText: Color(0xFF263238),
-    subTextDark: Color(0xFF688690),
-    subTextLight: Color(0xFFB5C3C9),
-    border: Color(0xFFA7C0CC),
-    disable: Color(0xFFE7E9EB),
-    white: Color(0xFFFFFFFF),
-    black: Color(0xFF000000),
-    lightBlack: Color(0x1F000000),
-    mediumBlack: Color(0x73000000),
-    lightBlue: Color(0x03A9F4FF),
-    mediumBlue: Color(0xFF1976D2),
-  );
+      mainText: Color(0xFF263238),
+      subTextDark: Color(0xFF688690),
+      subTextLight: Color(0xFFB5C3C9),
+      border: Color(0xFFA7C0CC),
+      disable: Color(0xFFE7E9EB),
+      white: Color(0xFFFFFFFF),
+      black: Color(0xFF000000),
+      lightBlack: Color(0x1F000000),
+      mediumBlack: Color(0x73000000),
+      lightBlue: Color(0x03A9F4FF),
+      mediumBlue: Color(0xFF1976D2),
+      orangeAccent: Color(0xffffAB40));
   static const dark = AppColors(
     mainText: Color(0xFFF1F5F1),
     subTextDark: Color(0xFF688690),
@@ -73,6 +76,7 @@ class AppColors {
     mediumBlack: Color(0x73000000),
     lightBlue: Color(0x03A9F4FF),
     mediumBlue: Color(0xFF1976D2),
+    orangeAccent: Color(0xffffAB40),
   );
 }
 
