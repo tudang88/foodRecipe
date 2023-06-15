@@ -1,17 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../constants/routes.dart';
 import '../domain/panel_item_model.dart';
 
 class TopPagePanelWidget extends ConsumerWidget {
   const TopPagePanelWidget({
     required this.panelItems,
-    this.onClick,
     Key? key,
   }) : super(key: key);
   final AsyncValue<List<PanelRecipeItem>>? panelItems;
-  final void Function(String id)? onClick;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = CarouselController();
@@ -31,8 +31,10 @@ class TopPagePanelWidget extends ConsumerWidget {
                 final recipeId = allPanelItems[index].recipeId;
                 return GestureDetector(
                   onTap: () {
-                    /// delegate on click event
-                    onClick!(recipeId);
+                    context.pushNamed(
+                      RouteNames.recipeDetail,
+                      params: {RouteParams.pageId: recipeId},
+                    );
                   },
                   child: Card(
                     elevation: 5,

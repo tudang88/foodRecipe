@@ -38,10 +38,6 @@ class TopPage extends ConsumerWidget {
       children: [
         TopPagePanelWidget(
           panelItems: panelItems,
-          onClick: (idStr) {
-            /// process on click here
-            log('RecipeId:$idStr');
-          },
         ),
         CustomSearchWidget(
           onEditCompleted: (keyword) {
@@ -68,7 +64,6 @@ class TopPage extends ConsumerWidget {
             return Expanded(
               child: GridView.count(
                 shrinkWrap: true,
-                restorationId: 'grid_view_top_anime',
                 crossAxisCount: 2,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,

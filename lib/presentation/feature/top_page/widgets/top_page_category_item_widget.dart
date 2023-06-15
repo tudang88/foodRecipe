@@ -21,7 +21,7 @@ class TopPageCategoryItemWidget extends ConsumerWidget {
       onTap: () => context.pushNamed(
         RouteNames.categoryDetail,
         params: {
-          RouteParams.categoryId: categoryItemModel.id,
+          RouteParams.categoryName: categoryItemModel.title,
         },
       ),
       child: GridTile(
@@ -37,7 +37,7 @@ class TopPageCategoryItemWidget extends ConsumerWidget {
             backgroundColor: AppColors.light.orangeAccent,
             title: _GridTitleText(
               categoryItemModel.title,
-              TopAnimeItemTextType.title,
+              GridItemTextType.title,
               int.parse(categoryItemModel.id),
             ),
           ),
@@ -65,7 +65,7 @@ class _GridTitleText extends StatelessWidget {
   const _GridTitleText(this.text, this.type, this.id);
 
   final String text;
-  final TopAnimeItemTextType type;
+  final GridItemTextType type;
   final int id;
 
   @override
@@ -79,4 +79,4 @@ class _GridTitleText extends StatelessWidget {
   }
 }
 
-enum TopAnimeItemTextType { title, subtitle }
+enum GridItemTextType { title, subtitle }

@@ -2,7 +2,8 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../constants/routes.dart';
-import '../../presentation/feature/detail/detail_page.dart';
+import '../../presentation/feature/category/category_page.dart';
+import '../../presentation/feature/details/detail_page.dart';
 import '../../presentation/feature/home/home_page.dart';
 
 part 'router_provider.g.dart';
@@ -20,8 +21,17 @@ GoRouter goRouter(ref) => GoRouter(
               name: RouteNames.categoryDetail,
               path: RoutePaths.categoryDetail,
               builder: (context, state) {
-                return DetailPage(
-                  id: state.params[RouteParams.categoryId]!,
+                return CategoryPage(
+                  title: state.params[RouteParams.categoryName]!,
+                );
+              },
+            ),
+            GoRoute(
+              name: RouteNames.recipeDetail,
+              path: RoutePaths.recipeDetail,
+              builder: (context, state) {
+                return DetailsPage(
+                  id: state.params[RouteParams.pageId]!,
                 );
               },
             ),

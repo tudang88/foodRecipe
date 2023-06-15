@@ -3,12 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../constants/constants.dart';
-import '../../../common_widgets/space_box.dart';
+import 'space_box.dart';
 
 const double leadingWidth = 100;
 
-class DetailAppBar extends ConsumerWidget implements PreferredSizeWidget {
-  const DetailAppBar({
+class ChildPageAppBar extends ConsumerWidget implements PreferredSizeWidget {
+  const ChildPageAppBar({
     Key? key,
   }) : super(key: key);
 
