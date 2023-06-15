@@ -47,7 +47,7 @@ class TopPage extends ConsumerWidget {
           onEditCompleted: (keyword) {
             log('Keyword: $keyword');
             if (keyword != '') {
-              // transition to Search Tab and perfom search
+              // transition to Search Tab and perform search
               ref.watch(currentTabProvider.notifier).update((state) => 1);
               ref.watch(keywordProvider.notifier).update((state) => keyword);
             }
