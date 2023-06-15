@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/child_page_app_bar.dart';
+import 'widgets/details_page_header_widget.dart';
 
 class DetailsPage extends BasePageStateless {
   const DetailsPage({required this.id, Key? key}) : super(key: key);
@@ -14,6 +15,11 @@ class DetailsPage extends BasePageStateless {
 
   @override
   Widget buildBody(BuildContext context) {
-    return Center(child: Text('Details Page for $id'));
+    return Column(
+      children: [
+        const DetailsPageHeaderWidget(),
+        Center(child: Text('Details Page for $id')),
+      ],
+    );
   }
 }

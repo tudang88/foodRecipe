@@ -13,8 +13,9 @@ class SearchResultItemModel with _$SearchResultItemModel {
     required String recipeName,
   }) = _SearchResultItemModel;
 
-  factory SearchResultItemModel.fromGetRecipesByNameResponse(
-      {required RecipeDetails recipeDetails}) {
+  factory SearchResultItemModel.fromGetRecipesByNameResponse({
+    required RecipeDetails recipeDetails,
+  }) {
     return SearchResultItemModel(
       recipeId: recipeDetails.recipeId!,
       recipeCategory: recipeDetails.categoryName!,
