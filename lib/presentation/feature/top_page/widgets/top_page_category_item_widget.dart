@@ -40,11 +40,6 @@ class TopPageCategoryItemWidget extends ConsumerWidget {
               TopAnimeItemTextType.title,
               int.parse(categoryItemModel.id),
             ),
-            subtitle: _GridTitleText(
-              categoryItemModel.title,
-              TopAnimeItemTextType.subtitle,
-              int.parse(categoryItemModel.id),
-            ),
           ),
         ),
         child: Material(
