@@ -41,7 +41,6 @@ class _DetailsPageHeaderWidgetState
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _controller.dispose();
     super.dispose();
   }
@@ -49,6 +48,7 @@ class _DetailsPageHeaderWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(top: 8),
       color: Colors.white10,
       child: SizedBox(
         width: double.infinity,

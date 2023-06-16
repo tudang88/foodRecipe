@@ -52,8 +52,8 @@ class IngredientLineWidget extends ConsumerWidget {
     final resultList = <Row>[];
     for (final volume in keyList) {
       final name = ingredient[volume];
-      log('Ingredients name: $name');
-      log('Ingredients volume: $volume');
+      // log('Ingredients name: $name');
+      // log('Ingredients volume: $volume');
       if (name == '') {
         continue;
       }
