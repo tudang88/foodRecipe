@@ -13,6 +13,7 @@ class RecipeDetailsItemModel with _$RecipeDetailsItemModel {
     required String recipeYoutube,
     required String recipeArea,
     required String recipeCategory,
+    required String recipeInstruction,
 
     /// map ingredient - volume
     required Map<String, String> ingredients,
@@ -50,6 +51,7 @@ class RecipeDetailsItemModel with _$RecipeDetailsItemModel {
       recipeYoutube: recipeDetails.youtubeLink!,
       recipeArea: recipeDetails.area!,
       recipeCategory: recipeDetails.categoryName!,
+      recipeInstruction: recipeDetails.instruction!,
       ingredients: ingredients,
     );
   }

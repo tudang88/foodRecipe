@@ -19,11 +19,19 @@ class DetailsPageHeaderWidget extends ConsumerStatefulWidget {
 class _DetailsPageHeaderWidgetState
     extends ConsumerState<DetailsPageHeaderWidget> {
   late final YoutubePlayerController _controller;
+  String _getYoutubeId() {
+    if (widget.youtubeLink.contains('v=')) {
+      return widget.youtubeLink.split('v=')[1].split(RegExp(r"(&|\?)"))[0];
+    } else {
+      return '';
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: widget.youtubeLink.split('v=')[1],
+      initialVideoId: _getYoutubeId(),
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         mute: false,

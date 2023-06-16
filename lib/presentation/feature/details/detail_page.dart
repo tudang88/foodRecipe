@@ -7,6 +7,7 @@ import '../../../data/use_case/recipe_details/get_recipe_details.dart';
 import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/child_page_app_bar.dart';
 import 'widgets/details_ingredients_widget.dart';
+import 'widgets/details_instruction_widget.dart';
 import 'widgets/details_page_header_widget.dart';
 import 'widgets/details_title_bar_widget.dart';
 
@@ -34,17 +35,24 @@ class DetailsPage extends BasePageStateless {
     return recipe.when(
       data: (recipeDetails) {
         final recipe = recipeDetails[0];
-        return Column(
-          children: [
-            DetailsPageHeaderWidget(
-              thumbnail: recipe.recipeThumb,
-              youtubeLink: recipe.recipeYoutube,
-            ),
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              DetailsPageHeaderWidget(
+                thumbnail: recipe.recipeThumb,
+                youtubeLink: recipe.recipeYoutube,
+              ),
 
-            /// Title bar
-            DetailsTitleBarWidget(title: recipe.recipeTitle),
-            RecipeIngredientsWidget(ingredients: recipe.ingredients)
-          ],
+              /// Title bar
+              DetailsTitleBarWidget(title: recipe.recipeTitle),
+              RecipeIngredientsWidget(ingredients: recipe.ingredients),
+              RecipeInstructionWidget(instruction: recipe.recipeInstruction),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Add to favorite'),
+              ),
+            ],
+          ),
         );
       },
       error: (err, stack) => Text('Err $err'),
