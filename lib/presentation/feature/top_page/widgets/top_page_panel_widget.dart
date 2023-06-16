@@ -21,42 +21,40 @@ class TopPagePanelWidget extends ConsumerWidget {
       child: SizedBox(
         width: double.infinity,
         height: 200,
-        child: Expanded(
-          child: panelItems!.when(
-            data: (allPanelItems) => CarouselSlider.builder(
-              carouselController: controller,
-              itemCount: allPanelItems.length,
-              itemBuilder: (context, index, realIdx) {
-                final imageUrl = allPanelItems[index].recipeThumb;
-                final recipeId = allPanelItems[index].recipeId;
-                return GestureDetector(
-                  onTap: () {
-                    context.pushNamed(
-                      RouteNames.recipeDetail,
-                      params: {RouteParams.pageId: recipeId},
-                    );
-                  },
-                  child: Card(
-                    elevation: 5,
-                    child: Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
-                      width: 800,
-                    ),
+        child: panelItems!.when(
+          data: (allPanelItems) => CarouselSlider.builder(
+            carouselController: controller,
+            itemCount: allPanelItems.length,
+            itemBuilder: (context, index, realIdx) {
+              final imageUrl = allPanelItems[index].recipeThumb;
+              final recipeId = allPanelItems[index].recipeId;
+              return GestureDetector(
+                onTap: () {
+                  context.pushNamed(
+                    RouteNames.recipeDetail,
+                    params: {RouteParams.pageId: recipeId},
+                  );
+                },
+                child: Card(
+                  elevation: 5,
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                    width: 800,
                   ),
-                );
-              },
-              options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                onPageChanged: (index, reason) {},
-              ),
+                ),
+              );
+            },
+            options: CarouselOptions(
+              autoPlay: true,
+              enlargeCenterPage: true,
+              onPageChanged: (index, reason) {},
             ),
-            error: (err, stack) => Center(
-              child: Text('Panel Err $err'),
-            ),
-            loading: () => const Center(child: CircularProgressIndicator()),
           ),
+          error: (err, stack) => Center(
+            child: Text('Panel Err $err'),
+          ),
+          loading: () => const Center(child: CircularProgressIndicator()),
         ),
       ),
     );
