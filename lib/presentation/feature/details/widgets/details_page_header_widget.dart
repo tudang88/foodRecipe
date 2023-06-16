@@ -21,7 +21,7 @@ class _DetailsPageHeaderWidgetState
   late final YoutubePlayerController _controller;
   String _getYoutubeId() {
     if (widget.youtubeLink.contains('v=')) {
-      return widget.youtubeLink.split('v=')[1].split(RegExp(r"(&|\?)"))[0];
+      return widget.youtubeLink.split('v=')[1].split(RegExp(r'(&|\?)'))[0];
     } else {
       return '';
     }
@@ -37,6 +37,13 @@ class _DetailsPageHeaderWidgetState
         mute: false,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
