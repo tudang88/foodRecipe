@@ -23,6 +23,7 @@ GoRouter goRouter(ref) => GoRouter(
               builder: (context, state) {
                 return CategoryPage(
                   title: state.params[RouteParams.categoryName]!,
+                  thumbnail: state.params[RouteParams.categoryThumb]!,
                 );
               },
             ),

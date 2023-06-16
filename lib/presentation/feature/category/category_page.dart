@@ -5,8 +5,10 @@ import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/child_page_app_bar.dart';
 
 class CategoryPage extends BasePageStateless {
-  const CategoryPage({required this.title, Key? key}) : super(key: key);
+  const CategoryPage({required this.title, required this.thumbnail, Key? key})
+      : super(key: key);
   final String title;
+  final String thumbnail;
 
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context) {
