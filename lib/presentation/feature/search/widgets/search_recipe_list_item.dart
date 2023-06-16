@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../constants/constants.dart';
-import '../../../../constants/resources/images.dart';
 import '../../../../constants/routes.dart';
 import '../domain/search_item_model.dart';
 

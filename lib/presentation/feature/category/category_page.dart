@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/child_page_app_bar.dart';
@@ -13,7 +14,7 @@ class CategoryPage extends BasePageStateless {
   }
 
   @override
-  Widget buildBody(BuildContext context) {
+  Widget buildBody(BuildContext context, WidgetRef ref) {
     return Center(child: Text('Category Page for $title'));
   }
 }

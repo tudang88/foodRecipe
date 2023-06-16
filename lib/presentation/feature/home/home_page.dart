@@ -26,7 +26,7 @@ class _HomePageState extends BasePageState<HomePage>
   }
 
   @override
-  Widget buildBody(BuildContext context) {
+  Widget buildBody(BuildContext context, WidgetRef ref) {
     return Consumer(
       builder: (context, ref, child) {
         final currentIndex = ref.watch(currentTabProvider);

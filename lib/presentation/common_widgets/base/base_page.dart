@@ -25,7 +25,7 @@ abstract class BasePageState<Page extends BasePage> extends ConsumerState<Page>
   }
 
   @override
-  Widget build(BuildContext context) => buildPage(context);
+  Widget build(BuildContext context) => buildPage(context, ref);
 
   @mustCallSuper
   void onInitState() {

@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../constants/resources/colors.dart';
 
@@ -13,7 +14,7 @@ mixin BasePageMixin {
 
   Future<bool> onWillPop() async => true;
 
-  Widget buildBody(BuildContext context);
+  Widget buildBody(BuildContext context, WidgetRef ref);
 
   PreferredSizeWidget? buildAppBar(BuildContext context);
 
@@ -27,7 +28,7 @@ mixin BasePageMixin {
 
   Widget? buildFloatActionButton(BuildContext context) => null;
 
-  Widget buildPage(BuildContext context) {
+  Widget buildPage(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: context.colors.white,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
@@ -45,9 +46,9 @@ mixin BasePageMixin {
                 ? SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
-                    child: buildBody(context),
+                    child: buildBody(context, ref),
                   )
-                : buildBody(context),
+                : buildBody(context, ref),
           ),
         ),
       ),
