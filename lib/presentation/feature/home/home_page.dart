@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constants/resources/colors.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../common_widgets/base/base_page.dart';
+import '../favorite/favorite_page.dart';
 import '../search/search_page.dart';
 import '../top_page/top_page.dart';
 import 'widgets/home_app_bar.dart';
@@ -18,7 +19,11 @@ class HomePage extends BasePage {
 
 class _HomePageState extends BasePageState<HomePage>
     with WidgetsBindingObserver {
-  final List _screens = [const TopPage(), const SearchPage()];
+  final List _screens = [
+    const TopPage(),
+    const SearchPage(),
+    const FavoritePage()
+  ];
 
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context) {
@@ -50,6 +55,10 @@ class _HomePageState extends BasePageState<HomePage>
               BottomNavigationBarItem(
                 label: AppLocalizations.of(context)!.home_tab_search,
                 icon: const Icon(Icons.search),
+              ),
+              BottomNavigationBarItem(
+                label: AppLocalizations.of(context)!.home_tab_favorite,
+                icon: const Icon(Icons.favorite),
               ),
             ],
           ),
