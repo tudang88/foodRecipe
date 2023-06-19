@@ -17,6 +17,10 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
 mobile development, and a full API reference.
 
+## Local database - Drift package (formerly named moor)
+ [refer to document](https://drift.simonbinder.eu/docs/getting-started/)
+The package build on top of sqlite, providing advantages almost same with Room on Android.
+We can borrow the concept from android to implement the database structure like DAOs
 ## How to build
 - run below command
 ```
