@@ -37,4 +37,15 @@ class Constants {
     fontWeight: FontWeight.bold,
     color: Colors.blueGrey,
   );
+
+  static const recipeCardTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+  static const searchResultTextStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: Colors.orangeAccent,
+  );
 }

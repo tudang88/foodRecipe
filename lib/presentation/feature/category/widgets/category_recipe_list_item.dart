@@ -2,44 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../../constants/routes.dart';
 import '../../../../constants/constants.dart';
 import '../../../../constants/resources/images.dart';
-import '../../../../constants/routes.dart';
 import '../../../common_widgets/space_box.dart';
-import '../domain/search_item_model.dart';
+import '../domain/category_page_item_model.dart';
 
-class SearchResultListRecipeItem extends ConsumerWidget {
-  const SearchResultListRecipeItem({
+class CategoryPageRecipeListItem extends ConsumerWidget {
+  const CategoryPageRecipeListItem({
     required this.recipe,
     Key? key,
   }) : super(key: key);
-  final SearchResultItemModel? recipe;
+  final CategoryPageItemModel recipe;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () {
         context.pushNamed(
           RouteNames.recipeDetail,
-          params: {RouteParams.pageId: recipe!.recipeId},
+          params: {RouteParams.pageId: recipe.recipeId},
         );
       },
       child: Card(
+        color: Colors.redAccent,
         elevation: 6,
         shape: RoundedRectangleBorder(
           side: BorderSide(
             color: Theme.of(context).colorScheme.outline,
           ),
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10),
+          ),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               flex: 3,
-              child: recipe!.recipeThumbnail.isNotEmpty
-                  ? ClipOval(
+              child: recipe.recipeThumb.isNotEmpty
+                  ? ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
                       child: FadeInImage.assetNetwork(
                         placeholder: AppImages.loading,
-                        image: recipe!.recipeThumbnail,
+                        image: recipe.recipeThumb,
                         fit: BoxFit.cover,
                       ),
                     )
@@ -47,11 +55,10 @@ class SearchResultListRecipeItem extends ConsumerWidget {
             ),
             Expanded(
               flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 8),
+              child: Center(
                 child: Text(
-                  recipe!.recipeName,
-                  style: Constants.searchResultTextStyle,
+                  recipe.recipeName,
+                  style: Constants.recipeCardTextStyle,
                   textAlign: TextAlign.center,
                 ),
               ),

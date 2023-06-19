@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class DetailsPageHeaderWidget extends ConsumerStatefulWidget {
+class DetailsPageHeaderWidget extends ConsumerWidget {
   const DetailsPageHeaderWidget({
     required this.thumbnail,
     required this.youtubeLink,
@@ -11,74 +11,67 @@ class DetailsPageHeaderWidget extends ConsumerStatefulWidget {
   }) : super(key: key);
   final String thumbnail;
   final String youtubeLink;
-  @override
-  ConsumerState<DetailsPageHeaderWidget> createState() =>
-      _DetailsPageHeaderWidgetState();
-}
 
-class _DetailsPageHeaderWidgetState
-    extends ConsumerState<DetailsPageHeaderWidget> {
-  late final YoutubePlayerController _controller;
-  String _getYoutubeId() {
-    if (widget.youtubeLink.contains('v=')) {
-      return widget.youtubeLink.split('v=')[1].split(RegExp(r'(&|\?)'))[0];
+  /// youtube link sometime null or empty,
+  /// so it's better to separate the case to avoid crash
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    var youtubeId = '';
+    var isYoutubeUrlValid = true;
+    if (youtubeLink.contains('v=')) {
+      youtubeId = youtubeLink.split('v=')[1].split(RegExp(r'(&|\?)'))[0];
     } else {
-      return '';
+      isYoutubeUrlValid = false;
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = YoutubePlayerController(
-      initialVideoId: _getYoutubeId(),
-      flags: const YoutubePlayerFlags(
-        autoPlay: false,
-        mute: false,
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 8),
       color: Colors.white10,
       child: SizedBox(
         width: double.infinity,
         height: 200,
-        child: CarouselSlider(
-          options: CarouselOptions(
-            enlargeCenterPage: true,
-            enableInfiniteScroll: true,
-          ),
-          items: [
-            Image.network(
-              widget.thumbnail,
-              fit: BoxFit.cover,
-              width: 800,
-            ),
-            YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: true,
-              progressIndicatorColor: Colors.amber,
-              progressColors: const ProgressBarColors(
-                playedColor: Colors.amber,
-                handleColor: Colors.amberAccent,
-              ),
-              onEnded: (_) {
-                _controller.pause();
-              },
-            ),
-          ],
-        ),
+        child: isYoutubeUrlValid
+            ? buildCarouselSlider(youtubeId)
+            : buildNetWorkImage(),
       ),
+    );
+  }
+
+  Widget buildCarouselSlider(String youtubeId) {
+    return CarouselSlider(
+      options: CarouselOptions(
+        enlargeCenterPage: true,
+        enableInfiniteScroll: true,
+      ),
+      items: [
+        Image.network(
+          thumbnail,
+          fit: BoxFit.cover,
+          width: 800,
+        ),
+        YoutubePlayer(
+          controller: YoutubePlayerController(
+            initialVideoId: youtubeId,
+            flags: const YoutubePlayerFlags(
+              autoPlay: false,
+              mute: false,
+            ),
+          ),
+          showVideoProgressIndicator: true,
+          progressIndicatorColor: Colors.amber,
+          progressColors: const ProgressBarColors(
+            playedColor: Colors.amber,
+            handleColor: Colors.amberAccent,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget buildNetWorkImage() {
+    return Image.network(
+      thumbnail,
+      fit: BoxFit.cover,
+      width: 800,
     );
   }
 }

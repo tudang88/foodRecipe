@@ -44,13 +44,16 @@ class SearchPage extends ConsumerWidget {
         ),
         Expanded(
           child: searchResult.when(
-            data: (data) => ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return SearchResultListRecipeItem(
-                  recipe: data[index],
-                );
-              },
+            data: (data) => GridView.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+              children: [
+                for (final item in data)
+                  SearchResultListRecipeItem(
+                    recipe: item,
+                  ),
+              ],
             ),
             error: (err, stack) => Text('Err $err'),
             loading: () => const Center(child: CircularProgressIndicator()),
