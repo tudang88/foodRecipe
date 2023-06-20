@@ -62,8 +62,10 @@ class FoodRecipesRepository {
   }
 
   /// remove favorite item
-  Future<void> removeFavoriteItem(
-      {required Database database, required String recipeId}) async {
+  Future<void> removeFavoriteItem({
+    required Database database,
+    required String recipeId,
+  }) async {
     await database.deleteFavorite(recipeId);
   }
 }
