@@ -12,8 +12,12 @@ part 'local_db.g.dart';
 
 @DriftDatabase(tables: [FavoriteTableEntry])
 class FavoriteDatabase extends _$FavoriteDatabase implements Database {
-  FavoriteDatabase() : super(_openConnection());
+  factory FavoriteDatabase() {
+    return _instanse;
+  }
+  FavoriteDatabase._internal() : super(_openConnection());
 
+  static final FavoriteDatabase _instanse = FavoriteDatabase._internal();
   // you should bump this number whenever you change
   // or add a table definition.
   @override
@@ -27,8 +31,8 @@ class FavoriteDatabase extends _$FavoriteDatabase implements Database {
       favoriteTableEntry.deleteWhere((tbl) => tbl.recipeId.equals(recipeId));
 
   @override
-  Future<List<FavoriteRecipe>> getAllFavorites() =>
-      select(favoriteTableEntry).get();
+  Stream<List<FavoriteRecipe>> getAllFavorites() =>
+      select(favoriteTableEntry).watch();
 
   @override
   Future<void> insertFavorite(FavoriteTableEntryCompanion favorite) async {

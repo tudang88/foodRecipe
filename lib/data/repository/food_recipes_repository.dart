@@ -40,16 +40,17 @@ class FoodRecipesRepository {
   }
 
   /// get favorite recipes interface
-  Future<List<FavoriteRecipe>> getAllFavorites({
+  Stream<List<FavoriteRecipe>> getAllFavorites({
     required Database database,
-  }) async {
+  }) {
     return database.getAllFavorites();
   }
 
   /// add item to database
-  Future<void> addFavorite(
-      {required Database database,
-      required RecipeDetailsItemModel entry}) async {
+  Future<void> addFavorite({
+    required Database database,
+    required RecipeDetailsItemModel entry,
+  }) async {
     final dbEntry = FavoriteTableEntryCompanion.insert(
       recipeId: entry.recipeId,
       recipeTitle: entry.recipeTitle,
@@ -58,5 +59,11 @@ class FoodRecipesRepository {
       recipeAre: entry.recipeArea,
     );
     await database.insertFavorite(dbEntry);
+  }
+
+  /// remove favorite item
+  Future<void> removeFavoriteItem(
+      {required Database database, required String recipeId}) async {
+    await database.deleteFavorite(recipeId);
   }
 }
