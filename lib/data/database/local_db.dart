@@ -1,10 +1,12 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+import 'package:retrofit/http.dart';
 
 import '../model/database/get_favorite_recipes_response.dart';
 import 'database.dart';
@@ -37,7 +39,13 @@ class FavoriteDatabase extends _$FavoriteDatabase implements Database {
 
   @override
   Future<void> insertFavorite(FavoriteTableEntryCompanion favorite) async {
-    await favoriteTableEntry.insertOne(favorite);
+    final checkExisted = await (select(favoriteTableEntry)
+          ..where((tbl) => tbl.recipeId.equals(favorite.recipeId.value)))
+        .get();
+    // only insert when not existed in database
+    if (checkExisted.isEmpty) {
+      await favoriteTableEntry.insertOne(favorite);
+    }
   }
 }
 
