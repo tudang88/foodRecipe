@@ -6,37 +6,35 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class DetailsPageHeaderWidget extends ConsumerWidget {
   const DetailsPageHeaderWidget({
     required this.thumbnail,
-    required this.youtubeLink,
+    // required this.youtubeLink,
     Key? key,
   }) : super(key: key);
   final String thumbnail;
-  final String youtubeLink;
+  // final String youtubeLink;
 
   /// youtube link sometime null or empty,
   /// so it's better to separate the case to avoid crash
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var youtubeId = '';
-    var isYoutubeUrlValid = true;
-    if (youtubeLink.contains('v=')) {
-      youtubeId = youtubeLink.split('v=')[1].split(RegExp(r'(&|\?)'))[0];
-    } else {
-      isYoutubeUrlValid = false;
-    }
+    // var youtubeId = '';
+    // var isYoutubeUrlValid = true;
+    // if (youtubeLink.contains('v=')) {
+    //   youtubeId = youtubeLink.split('v=')[1].split(RegExp(r'(&|\?)'))[0];
+    // } else {
+    //   isYoutubeUrlValid = false;
+    // }
     return Container(
       padding: const EdgeInsets.only(top: 8),
       color: Colors.white10,
       child: SizedBox(
         width: double.infinity,
         height: 200,
-        child: isYoutubeUrlValid
-            ? buildCarouselSlider(youtubeId)
-            : buildNetWorkImage(),
+        child: buildCarouselSlider(),
       ),
     );
   }
 
-  Widget buildCarouselSlider(String youtubeId) {
+  Widget buildCarouselSlider() {
     return CarouselSlider(
       options: CarouselOptions(
         enlargeCenterPage: true,
@@ -48,21 +46,21 @@ class DetailsPageHeaderWidget extends ConsumerWidget {
           fit: BoxFit.cover,
           width: 800,
         ),
-        YoutubePlayer(
-          controller: YoutubePlayerController(
-            initialVideoId: youtubeId,
-            flags: const YoutubePlayerFlags(
-              autoPlay: false,
-              mute: false,
-            ),
-          ),
-          showVideoProgressIndicator: true,
-          progressIndicatorColor: Colors.amber,
-          progressColors: const ProgressBarColors(
-            playedColor: Colors.amber,
-            handleColor: Colors.amberAccent,
-          ),
-        ),
+        // YoutubePlayer(
+        //   controller: YoutubePlayerController(
+        //     initialVideoId: youtubeId,
+        //     flags: const YoutubePlayerFlags(
+        //       autoPlay: false,
+        //       mute: false,
+        //     ),
+        //   ),
+        //   showVideoProgressIndicator: true,
+        //   progressIndicatorColor: Colors.amber,
+        //   progressColors: const ProgressBarColors(
+        //     playedColor: Colors.amber,
+        //     handleColor: Colors.amberAccent,
+        //   ),
+        // ),
       ],
     );
   }

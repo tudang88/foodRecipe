@@ -45,7 +45,7 @@ class DetailsPage extends BasePageStateless {
             children: [
               DetailsPageHeaderWidget(
                 thumbnail: recipe.recipeThumb,
-                youtubeLink: recipe.recipeYoutube,
+                // youtubeLink: recipe.recipeYoutube,
               ),
 
               /// Title bar
