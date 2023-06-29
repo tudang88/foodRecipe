@@ -36,72 +36,44 @@ A Flutter Sample Base on Riverpod 2.x
 ![](docs/application_struct.png)
 
 ## 4. How to build
-* The app using riverpod codegen and free codegen and drift package, so we need to run the build_runner at least when the related module have change
+* The app uses riverpod codegen and freeze codegen and drift package, so we need to run the build_runner at least when the related module have changed to build.
 - run below command
 ```
 flutter pub get
 flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
-## Reference Document
+* To run app on simulator, please use development-debug flavor
+* To run app on device, please use production-release
+## 5. Main Workflow
+* **Boot up Home Screen**
+  ![](docs/boot_up.svg)
+* **Search recipe by keyword**
+  ![](docs/search_recipe.svg)
+* **Read all recipes of a category**
+  ![](docs/read_a_category.svg)  
+* **Read Details of a recipe**
+  ![](docs/read_recipe_details.svg) 
+* **Read favorite recipes**
+  ![](docs/read_favorite_list.svg)
+  
+## 6. Reference Document
 - [Flutter Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
   - Presentation, Application, Domain and Data Layers.
 - Freezed Code Generation
 - Riverpod Provider Generation
 - Retrofit API calls, `toJson` function Generation.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
-mobile development, and a full API reference.
-
-## Local database - Drift package (formerly named moor)
+- Local database - Drift package (formerly named moor)
  [refer to document](https://drift.simonbinder.eu/docs/getting-started/)
 The package build on top of sqlite, providing advantages almost same with Room on Android.
 We can borrow the concept from android to implement the database structure like DAOs
-## How to build
-- run below command
-```
-flutter pub get
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
-
-## Run 
-### Android Studio
-Launch Configurations are included in the `.run` folder. 
-
-### Run iOS/Android using Visual Studio
 
 
-### run iOS/Android From terminal
+- Localization
+  - ref https://docs.flutter.dev/development/accessibility-and-localization/  internationalization
+  - define localization string file in app_en.arb, app_ja.arb it will be automatically  generated to use.
+  - use example - AppLocalizations.of(context)!.home_tab_profile
 
-```
-- flutter run --flavor Development -t lib/main/main_development.dart
-```
-
-### run iOS using xcode
-
-
-## Sample Tests
-
-### How to Run
-
-`flutter test`
-
-### Sample Unit Tests
-
-
-#### "If Response Data is Null, model list should be empty"
-
-
-#### "If Response Data is not null, model list should not be empty"
-
-
-### Sample UI Tests
-
-
-#### Should display 2 Top Anime Widgets
-
-
-## Localization
-- ref https://docs.flutter.dev/development/accessibility-and-localization/internationalization
-- define localization string file in app_en.arb, app_ja.arb it will be automatically generated to use.
-- use example - AppLocalizations.of(context)!.home_tab_profile
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
+mobile development, and a full API reference.
