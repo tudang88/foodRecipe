@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../constants/resources/images.dart';
 import '../../../../constants/routes.dart';
+import '../../../common_widgets/space_box.dart';
 import '../domain/panel_item_model.dart';
 
 class TopPagePanelWidget extends ConsumerWidget {
@@ -37,11 +39,14 @@ class TopPagePanelWidget extends ConsumerWidget {
                 },
                 child: Card(
                   elevation: 5,
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                    width: 800,
-                  ),
+                  child: imageUrl.isNotEmpty
+                      ? FadeInImage.assetNetwork(
+                          placeholder: AppImages.loading,
+                          image: imageUrl,
+                          width: 800,
+                          fit: BoxFit.fill,
+                        )
+                      : const SpaceBox(),
                 ),
               );
             },
