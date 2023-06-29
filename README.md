@@ -25,6 +25,24 @@ A Flutter Sample Base on Riverpod 2.x
 
 ## 3. Application Architecture
 * The application structured base the Riverpod Template and Guideline.
+* Layer Role Description
+  | No | Layer Name | Description|
+  |----|------------|-------------|
+  |1   | presentation| The UI and UI interaction implementation Layer|
+  |2 | application | All the usecase are covered here. The Presentation Layer will interact with Data layer for each specific usecase via this layer.
+  |3 | model | All the data for Network Data and Local Database Data are implement here. The Application and Data layer will use this model for it's logic.
+  | 4 | data | all data control including query network or local database are incharged by this layer.
+* The structure of the application would be as following
+![](docs/application_struct.png)
+
+## 4. How to build
+* The app using riverpod codegen and free codegen and drift package, so we need to run the build_runner at least when the related module have change
+- run below command
+```
+flutter pub get
+flutter packages pub run build_runner build --delete-conflicting-outputs
+```
+## Reference Document
 - [Flutter Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
   - Presentation, Application, Domain and Data Layers.
 - Freezed Code Generation
