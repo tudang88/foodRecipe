@@ -1,12 +1,9 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
-import 'package:retrofit/http.dart';
 
 import '../model/database/get_favorite_recipes_response.dart';
 import 'database.dart';
@@ -18,6 +15,8 @@ class FavoriteDatabase extends _$FavoriteDatabase implements Database {
   factory FavoriteDatabase() {
     return _instanse;
   }
+  // To avoid conflict when multiple instanse of Database exist
+  // The database will be a singleton
   FavoriteDatabase._internal() : super(_openConnection());
 
   static final FavoriteDatabase _instanse = FavoriteDatabase._internal();
