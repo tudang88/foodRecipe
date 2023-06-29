@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../data/api/api_client.dart';
+import '../../../data/repository/food_recipes_repository.dart';
 import '../../../presentation/feature/category/domain/category_page_item_model.dart';
-import '../../api/api_client.dart';
-import '../../repository/food_recipes_repository.dart';
 
 part 'get_recipes_of_category.g.dart';
 

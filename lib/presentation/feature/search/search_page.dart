@@ -3,11 +3,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../application/use_case/search/get_recipes_by_search_name.dart';
 import '../../../constants/constants.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
-import '../../../data/use_case/search/get_recipes_by_search_name.dart';
 import '../../common_widgets/search_widget.dart';
 import 'widgets/search_recipe_list_item.dart';
 

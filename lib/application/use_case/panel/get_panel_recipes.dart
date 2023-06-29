@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import '../../../data/api/api_client.dart';
+import '../../../data/repository/food_recipes_repository.dart';
 import '../../../presentation/feature/top_page/domain/panel_item_model.dart';
-import '../../api/api_client.dart';
-import '../../repository/food_recipes_repository.dart';
 
 part 'get_panel_recipes.g.dart';
 

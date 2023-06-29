@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../data/model/api/response/get_recipes_by_name_response.dart';
+import '../../../../domain/model/api/response/get_recipes_by_name_response.dart';
 
 part 'search_item_model.freezed.dart';
 

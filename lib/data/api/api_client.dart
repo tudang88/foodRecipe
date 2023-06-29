@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../model/api/response/get_all_categories_response.dart';
-import '../model/api/response/get_recipes_by_category_response.dart';
-import '../model/api/response/get_recipes_by_name_response.dart';
+import '../../domain/model/api/response/get_all_categories_response.dart';
+import '../../domain/model/api/response/get_recipes_by_category_response.dart';
+import '../../domain/model/api/response/get_recipes_by_name_response.dart';
 import 'api_paths.dart';
 
 part 'api_client.g.dart';

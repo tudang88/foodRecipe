@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../data/database/database.dart';
+import '../../../data/repository/food_recipes_repository.dart';
 import '../../../presentation/feature/details/domain/recipe_detail_item_model.dart';
-import '../../database/database.dart';
-import '../../repository/food_recipes_repository.dart';
 
 part 'add_favorite_to_db.g.dart';
 

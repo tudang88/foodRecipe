@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../application/use_case/categories/get_all_categories.dart';
+import '../../../application/use_case/panel/get_panel_recipes.dart';
 import '../../../constants/constants.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
-import '../../../data/use_case/categories/get_all_categories.dart';
-import '../../../data/use_case/panel/get_panel_recipes.dart';
 import '../../common_widgets/search_widget.dart';
 import 'widgets/top_page_category_item_widget.dart';
 import 'widgets/top_page_panel_widget.dart';

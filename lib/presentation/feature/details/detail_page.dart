@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../application/use_case/favorites/add_favorite_to_db.dart';
+import '../../../application/use_case/recipe_details/get_recipe_details.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/database_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
-import '../../../data/use_case/favorites/add_favorite_to_db.dart';
-import '../../../data/use_case/recipe_details/get_recipe_details.dart';
 import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/child_page_app_bar.dart';
 import 'widgets/details_ingredients_widget.dart';

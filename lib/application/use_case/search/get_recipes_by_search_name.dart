@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import '../../../data/api/api_client.dart';
+import '../../../data/providers/common_provider.dart';
+import '../../../data/repository/food_recipes_repository.dart';
 import '../../../presentation/feature/search/domain/search_item_model.dart';
-import '../../api/api_client.dart';
-import '../../providers/common_provider.dart';
-import '../../repository/food_recipes_repository.dart';
 
 part 'get_recipes_by_search_name.g.dart';
 

@@ -1,7 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../database/database.dart';
-import '../../repository/food_recipes_repository.dart';
+import '../../../data/database/database.dart';
+import '../../../data/repository/food_recipes_repository.dart';
+
 part 'remove_favorite_from_db.g.dart';
 
 @riverpod

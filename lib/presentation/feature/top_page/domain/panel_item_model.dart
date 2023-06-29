@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../../data/model/api/response/get_recipes_by_category_response.dart';
+
+import '../../../../domain/model/api/response/get_recipes_by_category_response.dart';
 
 part 'panel_item_model.freezed.dart';
 

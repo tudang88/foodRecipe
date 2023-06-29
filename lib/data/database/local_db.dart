@@ -5,7 +5,7 @@ import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
-import '../model/database/get_favorite_recipes_response.dart';
+import '../../domain/model/database/get_favorite_recipes_response.dart';
 import 'database.dart';
 
 part 'local_db.g.dart';

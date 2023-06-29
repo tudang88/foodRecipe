@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../application/use_case/favorites/get_all_favorite_items.dart';
 import '../../../constants/resources/colors.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/database_provider.dart';
-import '../../../data/use_case/favorites/get_all_favorite_items.dart';
 import '../../common_widgets/base/base_page.dart';
 import '../favorite/favorite_page.dart';
 import '../search/search_page.dart';

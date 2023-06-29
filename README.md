@@ -1,12 +1,30 @@
 # Find Recipe
 
-Flutter Sample /Riverpod 2.x
+A Flutter Sample Base on Riverpod 2.x
 
-## Premise
-T.B.D
+## 1. Introduction
+* This is a sample applied the template public at [RiverPod Template](https://github.com/monstar-lab-oss/flutter-template-riverpod)
+* The main function of the application will be as following
+  * Show the available recipes on Screens which the data fetch from RecipeAPI www.themealdb.com
+  * Allow user to search by inputing recipe name or related keyword
+  * Allow user to browse all available recipes of a certain category
+  * Allow user to read the detail of a recipe
+  * Allow user to mark a recipe to favorites list or remove from favorite list
+## 2. Screen Design and Screen Transition
+* **Screens**
+  | No | Screen Name | Description|
+  |----|-------------|------------|
+  |1   | Home        | The Home screen includes a slide pannel which will randomly pick up one of 12 available categories each time the app restarts. <br> The available categories will be show on Home screen.|
+  | 2 | Search | The Search screen where the search result will be displayed and the search operation could be also run.|
+  | 3 | Favorites| The Favorites Screen will show all favorite recipes|
+  | 4 | Recipe Details| The details of a recipe will be show here. 
+  | 5 | Category Details| All the recipes related to a category could be found in this screen. 
 
-## Concepts demonstrated
+* **Screen Transition**
+![](docs/screen_transition.png)
 
+## 3. Application Architecture
+* The application structured base the Riverpod Template and Guideline.
 - [Flutter Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
   - Presentation, Application, Domain and Data Layers.
 - Freezed Code Generation

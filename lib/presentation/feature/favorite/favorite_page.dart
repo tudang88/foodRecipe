@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../application/use_case/favorites/get_all_favorite_items.dart';
+import '../../../application/use_case/favorites/remove_favorite_from_db.dart';
 import '../../../data/providers/database_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
-import '../../../data/use_case/favorites/get_all_favorite_items.dart';
-import '../../../data/use_case/favorites/remove_favorite_from_db.dart';
 import 'widgets/favorite_list_item_widget.dart';
 
 class FavoritePage extends ConsumerWidget {
