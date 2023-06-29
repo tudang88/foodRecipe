@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constants/resources/colors.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/database_provider.dart';
-import '../../../data/providers/food_recipes_repository_provider.dart';
 import '../../../data/use_case/favorites/get_all_favorite_items.dart';
 import '../../common_widgets/base/base_page.dart';
 import '../favorite/favorite_page.dart';

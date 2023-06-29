@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'database_provider.dart';
 
 /// a shared variable maintain search keyword
 final keywordProvider = StateProvider<String>((ref) => '');
