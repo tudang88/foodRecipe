@@ -38,10 +38,10 @@ A Flutter Sample Base on Riverpod 2.x
 ## 4. How to build
 * The app uses riverpod codegen and freeze codegen and drift package, so we need to run the build_runner at least when the related module have changed to build.
 - run below command
-```
-flutter pub get
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
+  ```
+  flutter pub get
+  flutter packages pub run build_runner build   --delete-conflicting-outputs
+  ```
 * To run app on simulator, please use development-debug flavor
 * To run app on device, please use production-release
 ## 5. Main Workflow
