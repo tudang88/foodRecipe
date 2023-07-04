@@ -12,14 +12,14 @@ class SearchRecipeListRecipeItem extends ConsumerWidget {
     required this.recipe,
     Key? key,
   }) : super(key: key);
-  final SearchRecipeListItemModel? recipe;
+  final SearchRecipeListItemModel recipe;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () {
         context.pushNamed(
           RouteNames.recipeDetail,
-          params: {RouteParams.pageId: recipe!.recipeId},
+          params: {RouteParams.pageId: recipe.recipeId},
         );
       },
       child: Card(
@@ -34,11 +34,11 @@ class SearchRecipeListRecipeItem extends ConsumerWidget {
           children: [
             Expanded(
               flex: 3,
-              child: recipe!.recipeThumbnail.isNotEmpty
+              child: recipe.recipeThumbnail.isNotEmpty
                   ? ClipOval(
                       child: FadeInImage.assetNetwork(
                         placeholder: AppImages.loading,
-                        image: recipe!.recipeThumbnail,
+                        image: recipe.recipeThumbnail,
                         fit: BoxFit.cover,
                       ),
                     )
@@ -49,7 +49,7 @@ class SearchRecipeListRecipeItem extends ConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  recipe!.recipeName,
+                  recipe.recipeName,
                   style: Constants.searchResultTextStyle,
                   textAlign: TextAlign.center,
                 ),

@@ -13,7 +13,7 @@ class HomePagePanelWidget extends ConsumerWidget {
     required this.panelItems,
     Key? key,
   }) : super(key: key);
-  final AsyncValue<List<PanelRecipeListItemModel>>? panelItems;
+  final AsyncValue<List<PanelRecipeListItemModel>> panelItems;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = CarouselController();
@@ -23,7 +23,7 @@ class HomePagePanelWidget extends ConsumerWidget {
       child: SizedBox(
         width: double.infinity,
         height: 200,
-        child: panelItems!.when(
+        child: panelItems.when(
           data: (allPanelItems) => CarouselSlider.builder(
             carouselController: controller,
             itemCount: allPanelItems.length,
