@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../application/use_case/search/get_recipes_by_search_name.dart';
-import '../../../constants/constants.dart';
+import '../../../constants/resources/resources.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
@@ -29,7 +29,7 @@ class SearchPage extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomSearchWidget(
+        SearchWidget(
           onEditCompleted: (keyword) {
             log('Keyword: $keyword');
             ref.watch(keywordProvider.notifier).state = keyword;

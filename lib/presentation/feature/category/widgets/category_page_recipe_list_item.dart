@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../constants/routes.dart';
-import '../../../../constants/constants.dart';
-import '../../../../constants/resources/images.dart';
+import '../../../../constants/resources/resources.dart';
 import '../../../common_widgets/space_box.dart';
 import '../models/category_page_item_model.dart';
 

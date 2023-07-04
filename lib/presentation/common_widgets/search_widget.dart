@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomSearchWidget extends StatelessWidget {
-  const CustomSearchWidget({Key? key, this.onEditCompleted}) : super(key: key);
+class SearchWidget extends StatelessWidget {
+  const SearchWidget({Key? key, this.onEditCompleted}) : super(key: key);
   final void Function(String keyword)? onEditCompleted;
   @override
   Widget build(BuildContext context) {

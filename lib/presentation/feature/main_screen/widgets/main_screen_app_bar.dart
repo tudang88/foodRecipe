@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../constants/constants.dart';
+import '../../../../constants/resources/resources.dart';
 import '../../../common_widgets/space_box.dart';
 
 const double leadingWidth = 100;

@@ -36,8 +36,8 @@ dependencies:
   logger: ^1.1.0
   # for image panel
   carousel_slider: ^4.2.1
-  # for youtube player
-  youtube_player_flutter: ^8.1.2
+  # # for youtube player
+  # youtube_player_flutter: ^8.1.2
   # database
   drift: ^2.9.0
   sqlite3_flutter_libs: ^0.5.15

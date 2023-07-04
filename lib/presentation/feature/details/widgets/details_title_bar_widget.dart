@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../constants/constants.dart';
+import '../../../../constants/resources/resources.dart';
 
 class DetailsTitleBarWidget extends ConsumerWidget {
   const DetailsTitleBarWidget({

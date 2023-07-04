@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../constants/constants.dart';
+import '../../constants/resources/resources.dart';
 import 'space_box.dart';
 
 const double leadingWidth = 100;

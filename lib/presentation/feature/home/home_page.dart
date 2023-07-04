@@ -5,7 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../application/use_case/categories/get_all_categories.dart';
 import '../../../application/use_case/panel/get_panel_recipes.dart';
-import '../../../constants/constants.dart';
+import '../../../constants/resources/resources.dart';
+import '../../../constants/routes.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
@@ -39,12 +40,14 @@ class HomePage extends ConsumerWidget {
         HomePagePanelWidget(
           panelItems: panelItems,
         ),
-        CustomSearchWidget(
+        SearchWidget(
           onEditCompleted: (keyword) {
             log('Keyword: $keyword');
             if (keyword != '') {
               // transition to Search Tab and perform search
-              ref.watch(currentTabProvider.notifier).update((state) => 1);
+              ref
+                  .watch(currentTabProvider.notifier)
+                  .update((state) => MainScreenNavigation.searchPage.index);
               ref.watch(keywordProvider.notifier).update((state) => keyword);
             }
           },

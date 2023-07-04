@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../constants/resources/colors.dart';
-import '../../../../constants/resources/images.dart';
+import '../../../../constants/resources/resources.dart';
 import '../../../../constants/routes.dart';
 import '../../../common_widgets/space_box.dart';
 import '../models/favorite_item_model.dart';
 
 class FavoriteListItemWidget extends ConsumerWidget {
-  const FavoriteListItemWidget(
-      {required this.favoriteItem, required this.onclick, super.key});
+  const FavoriteListItemWidget({
+    required this.favoriteItem,
+    required this.onclick,
+    super.key,
+  });
   final void Function()? onclick;
   final FavoriteItemModel favoriteItem;
   @override

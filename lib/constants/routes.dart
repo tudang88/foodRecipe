@@ -21,3 +21,6 @@ class RouteParams {
   static const categoryName = 'name';
   static const categoryThumb = 'thumbnail';
 }
+
+// Main Screen Navigation Index
+enum MainScreenNavigation { homePage, searchPage, favoritePage }
