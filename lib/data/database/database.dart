@@ -6,4 +6,5 @@ abstract class Database {
   Future<void> insertFavorite(FavoriteTableEntryCompanion favorite);
   Future<void> deleteFavorite(String recipeId);
   Future<void> deleteAllFavorites();
+  Future<bool> isExistedItem(String id);
 }

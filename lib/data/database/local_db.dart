@@ -46,6 +46,14 @@ class FavoriteDatabase extends _$FavoriteDatabase implements Database {
       await favoriteTableEntry.insertOne(favorite);
     }
   }
+
+  @override
+  Future<bool> isExistedItem(String id) async {
+    final checkExisted = await (select(favoriteTableEntry)
+          ..where((tbl) => tbl.recipeId.equals(id)))
+        .get();
+    return checkExisted.isNotEmpty;
+  }
 }
 
 // the LazyDatabase util

@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../application/use_case/favorites/add_favorite_to_db.dart';
+import '../../../application/use_case/favorites/remove_favorite_from_db.dart';
 import '../../../application/use_case/recipe_details/get_recipe_details.dart';
+import '../../../data/database/database.dart';
 import '../../../data/providers/api_client_provider.dart';
+import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/database_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
+import '../../../data/repository/food_recipes_repository.dart';
 import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/child_page_app_bar.dart';
+import 'models/recipe_detail_item_model.dart';
 import 'widgets/details_ingredients_widget.dart';
 import 'widgets/details_instruction_widget.dart';
 import 'widgets/details_page_header_widget.dart';
@@ -25,6 +30,7 @@ class DetailsPage extends BasePageStateless {
   @override
   Widget buildBody(BuildContext context, WidgetRef ref) {
     /// get recipes repository from river_pod provider
+    final favoriteFlag = ref.watch(favoriteStatusProvider(id));
     final database = ref.watch(favoriteDbProvider);
     final apiClient = ref.watch(apiClientProvider);
     final repository = ref.watch(foodRecipesRepositoryProvider);
@@ -35,6 +41,7 @@ class DetailsPage extends BasePageStateless {
         id: id,
       ),
     );
+
     return recipe.when(
       data: (recipeDetails) {
         final recipe = recipeDetails[0];
@@ -50,17 +57,20 @@ class DetailsPage extends BasePageStateless {
               DetailsTitleBarWidget(title: recipe.recipeTitle),
               DetailsIngredientsWidget(ingredients: recipe.ingredients),
               DetailsInstructionWidget(instruction: recipe.recipeInstruction),
-              TextButton(
+              TextButton.icon(
                 onPressed: () {
-                  ref.watch(
-                    addFavoriteItemToDbProvider(
-                      database: database,
-                      repository: repository,
-                      recipe: recipe,
-                    ),
+                  updateFavorite(
+                    ref,
+                    database,
+                    repository,
+                    recipe,
+                    favoriteFlag,
                   );
                 },
-                child: const Text('Add to favorite'),
+                icon: favoriteFlag
+                    ? const Icon(Icons.favorite)
+                    : const Icon(Icons.favorite_border_outlined),
+                label: const Text('Add Favorite'),
               ),
             ],
           ),
@@ -69,5 +79,35 @@ class DetailsPage extends BasePageStateless {
       error: (err, stack) => Text('Err $err'),
       loading: () => const Center(child: CircularProgressIndicator()),
     );
+  }
+
+  // update database
+  void updateFavorite(
+    WidgetRef ref,
+    Database database,
+    FoodRecipesRepository repository,
+    RecipeDetailsItemModel recipe,
+    bool favorite,
+  ) {
+    // remove from favorite list
+    if (favorite) {
+      ref.watch(
+        removeFavoriteItemProvider(
+          database: database,
+          repository: repository,
+          recipeId: recipe.recipeId,
+        ),
+      );
+    } else {
+      // add to favorite list
+      ref.watch(
+        addFavoriteItemToDbProvider(
+          database: database,
+          repository: repository,
+          recipe: recipe,
+        ),
+      );
+    }
+    ref.watch(favoriteStatusProvider(id).notifier).update((state) => !favorite);
   }
 }
