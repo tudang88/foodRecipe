@@ -2,21 +2,21 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../domain/model/api/response/get_recipes_by_name_response.dart';
 
-part 'search_item_model.freezed.dart';
+part 'search_recipe_list_item_model.freezed.dart';
 
 @freezed
-class SearchResultItemModel with _$SearchResultItemModel {
-  const factory SearchResultItemModel({
+class SearchRecipeListItemModel with _$SearchRecipeListItemModel {
+  const factory SearchRecipeListItemModel({
     required String recipeId,
     required String recipeThumbnail,
     required String recipeCategory,
     required String recipeName,
-  }) = _SearchResultItemModel;
+  }) = _SearchRecipeListItemModel;
 
-  factory SearchResultItemModel.fromGetRecipesByNameResponse({
+  factory SearchRecipeListItemModel.fromGetRecipesByNameResponse({
     required RecipeDetails recipeDetails,
   }) {
-    return SearchResultItemModel(
+    return SearchRecipeListItemModel(
       recipeId: recipeDetails.recipeId!,
       recipeCategory: recipeDetails.categoryName!,
       recipeThumbnail: recipeDetails.recipeThumbLink!,

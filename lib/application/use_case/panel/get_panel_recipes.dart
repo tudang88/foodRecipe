@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../data/api/api_client.dart';
 import '../../../data/repository/food_recipes_repository.dart';
-import '../../../presentation/feature/top_page/domain/panel_item_model.dart';
+import '../../../presentation/feature/home/models/panel_recipe_list_item_model.dart';
 
 part 'get_panel_recipes.g.dart';
 
 /// provider holds the list of item show on top panel
 /// turn off autoDispose for top panel
 @Riverpod(keepAlive: true)
-Future<List<PanelRecipeItem>> panelRecipes(
+Future<List<PanelRecipeListItemModel>> panelRecipes(
   PanelRecipesRef ref, {
   required ApiClient apiClient,
   required FoodRecipesRepository recipesRepository,
@@ -33,7 +33,8 @@ Future<List<PanelRecipeItem>> panelRecipes(
   } else {
     return result.meals!
         .map(
-          (recipeShort) => PanelRecipeItem.fromGetRecipesOfCategoryResponse(
+          (recipeShort) =>
+              PanelRecipeListItemModel.fromGetRecipesOfCategoryResponse(
             recipeShortInfo: recipeShort,
           ),
         )

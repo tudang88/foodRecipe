@@ -6,14 +6,14 @@ import '../../../../constants/constants.dart';
 import '../../../../constants/resources/images.dart';
 import '../../../../constants/routes.dart';
 import '../../../common_widgets/space_box.dart';
-import '../domain/search_item_model.dart';
+import '../models/search_recipe_list_item_model.dart';
 
-class SearchResultListRecipeItem extends ConsumerWidget {
-  const SearchResultListRecipeItem({
+class SearchRecipeListRecipeItem extends ConsumerWidget {
+  const SearchRecipeListRecipeItem({
     required this.recipe,
     Key? key,
   }) : super(key: key);
-  final SearchResultItemModel? recipe;
+  final SearchRecipeListItemModel? recipe;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(

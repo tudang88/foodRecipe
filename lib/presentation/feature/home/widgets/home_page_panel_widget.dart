@@ -6,14 +6,14 @@ import 'package:go_router/go_router.dart';
 import '../../../../constants/resources/images.dart';
 import '../../../../constants/routes.dart';
 import '../../../common_widgets/space_box.dart';
-import '../domain/panel_item_model.dart';
+import '../models/panel_recipe_list_item_model.dart';
 
-class TopPagePanelWidget extends ConsumerWidget {
-  const TopPagePanelWidget({
+class HomePagePanelWidget extends ConsumerWidget {
+  const HomePagePanelWidget({
     required this.panelItems,
     Key? key,
   }) : super(key: key);
-  final AsyncValue<List<PanelRecipeItem>>? panelItems;
+  final AsyncValue<List<PanelRecipeListItemModel>>? panelItems;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = CarouselController();

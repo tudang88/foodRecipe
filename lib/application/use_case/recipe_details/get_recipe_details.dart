@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data/api/api_client.dart';
 import '../../../data/repository/food_recipes_repository.dart';
-import '../../../presentation/feature/details/domain/recipe_detail_item_model.dart';
+import '../../../presentation/feature/details/models/recipe_detail_item_model.dart';
 
 part 'get_recipe_details.g.dart';
 

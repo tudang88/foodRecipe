@@ -6,7 +6,7 @@ import '../../../../../../constants/routes.dart';
 import '../../../../constants/constants.dart';
 import '../../../../constants/resources/images.dart';
 import '../../../common_widgets/space_box.dart';
-import '../domain/category_page_item_model.dart';
+import '../models/category_page_item_model.dart';
 
 class CategoryPageRecipeListItem extends ConsumerWidget {
   const CategoryPageRecipeListItem({

@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RecipeInstructionWidget extends ConsumerWidget {
-  const RecipeInstructionWidget({
+class DetailsInstructionWidget extends ConsumerWidget {
+  const DetailsInstructionWidget({
     required this.instruction,
     Key? key,
   }) : super(key: key);

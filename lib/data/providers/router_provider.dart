@@ -3,8 +3,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../constants/routes.dart';
 import '../../presentation/feature/category/category_page.dart';
-import '../../presentation/feature/details/detail_page.dart';
-import '../../presentation/feature/home/home_page.dart';
+import '../../presentation/feature/details/details_page.dart';
+import '../../presentation/feature/main_screen/main_screen.dart';
 
 part 'router_provider.g.dart';
 
@@ -14,7 +14,7 @@ GoRouter goRouter(ref) => GoRouter(
         GoRoute(
           path: RoutePaths.root,
           builder: (context, state) {
-            return const HomePage();
+            return const MainScreen();
           },
           routes: [
             GoRoute(

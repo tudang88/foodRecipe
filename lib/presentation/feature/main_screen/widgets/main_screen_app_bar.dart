@@ -6,8 +6,8 @@ import '../../../common_widgets/space_box.dart';
 
 const double leadingWidth = 100;
 
-class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
-  const HomeAppBar({
+class MainScreenAppBar extends ConsumerWidget implements PreferredSizeWidget {
+  const MainScreenAppBar({
     Key? key,
   }) : super(key: key);
 

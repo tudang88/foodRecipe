@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/database/database.dart';
-import '../../../presentation/feature/favorite/domain/favorite_item_model.dart';
+import '../../../presentation/feature/favorite/models/favorite_item_model.dart';
 
 /// get all database items
 final getAllFavoritesProvider =

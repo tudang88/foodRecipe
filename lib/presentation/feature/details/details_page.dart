@@ -48,8 +48,8 @@ class DetailsPage extends BasePageStateless {
 
               /// Title bar
               DetailsTitleBarWidget(title: recipe.recipeTitle),
-              RecipeIngredientsWidget(ingredients: recipe.ingredients),
-              RecipeInstructionWidget(instruction: recipe.recipeInstruction),
+              DetailsIngredientsWidget(ingredients: recipe.ingredients),
+              DetailsInstructionWidget(instruction: recipe.recipeInstruction),
               TextButton(
                 onPressed: () {
                   ref.watch(

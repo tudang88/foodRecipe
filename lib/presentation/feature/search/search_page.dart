@@ -50,7 +50,7 @@ class SearchPage extends ConsumerWidget {
               mainAxisSpacing: 8,
               children: [
                 for (final item in data)
-                  SearchResultListRecipeItem(
+                  SearchRecipeListRecipeItem(
                     recipe: item,
                   ),
               ],

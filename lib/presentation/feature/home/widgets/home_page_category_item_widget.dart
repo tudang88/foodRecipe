@@ -6,10 +6,10 @@ import '../../../../constants/resources/colors.dart';
 import '../../../../constants/resources/images.dart';
 import '../../../../constants/routes.dart';
 import '../../../common_widgets/space_box.dart';
-import '../domain/category_item_model.dart';
+import '../models/category_item_model.dart';
 
-class TopPageCategoryItemWidget extends ConsumerWidget {
-  const TopPageCategoryItemWidget({
+class HomePageCategoryItemWidget extends ConsumerWidget {
+  const HomePageCategoryItemWidget({
     required this.categoryItemModel,
     Key? key,
   }) : super(key: key);
