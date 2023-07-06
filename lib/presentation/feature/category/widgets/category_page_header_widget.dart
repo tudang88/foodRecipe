@@ -34,7 +34,7 @@ class CategoryPageHeaderWidget extends ConsumerWidget {
             color: AppColors.light.orangeAccent,
             child: Text(
               categoryTitle,
-              style: Constants.titleTextStyle,
+              style: AppTextStyles.titleTextStyle,
             ),
           ),
         )
