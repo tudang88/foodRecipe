@@ -13,7 +13,7 @@ class HomePagePanelWidget extends ConsumerWidget {
     required this.panelItems,
     Key? key,
   }) : super(key: key);
-  final AsyncValue<List<PanelRecipeListItemModel>> panelItems;
+  final List<PanelRecipeListItemModel> panelItems;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = CarouselController();
@@ -23,43 +23,37 @@ class HomePagePanelWidget extends ConsumerWidget {
       child: SizedBox(
         width: double.infinity,
         height: 200,
-        child: panelItems.when(
-          data: (allPanelItems) => CarouselSlider.builder(
-            carouselController: controller,
-            itemCount: allPanelItems.length,
-            itemBuilder: (context, index, realIdx) {
-              final imageUrl = allPanelItems[index].recipeThumb;
-              final recipeId = allPanelItems[index].recipeId;
-              return GestureDetector(
-                onTap: () {
-                  context.pushNamed(
-                    RouteNames.recipeDetail,
-                    params: {RouteParams.pageId: recipeId},
-                  );
-                },
-                child: Card(
-                  elevation: 5,
-                  child: imageUrl.isNotEmpty
-                      ? FadeInImage.assetNetwork(
-                          placeholder: AppImages.loading,
-                          image: imageUrl,
-                          width: 800,
-                          fit: BoxFit.fill,
-                        )
-                      : const SpaceBox(),
-                ),
-              );
-            },
-            options: CarouselOptions(
-              autoPlay: true,
-              enlargeCenterPage: true,
-              onPageChanged: (index, reason) {},
-            ),
+        child: CarouselSlider.builder(
+          carouselController: controller,
+          itemCount: panelItems.length,
+          itemBuilder: (context, index, realIdx) {
+            final imageUrl = panelItems[index].recipeThumb;
+            final recipeId = panelItems[index].recipeId;
+            return GestureDetector(
+              onTap: () {
+                context.pushNamed(
+                  RouteNames.recipeDetail,
+                  params: {RouteParams.pageId: recipeId},
+                );
+              },
+              child: Card(
+                elevation: 5,
+                child: imageUrl.isNotEmpty
+                    ? FadeInImage.assetNetwork(
+                        placeholder: AppImages.loading,
+                        image: imageUrl,
+                        width: 800,
+                        fit: BoxFit.fill,
+                      )
+                    : const SpaceBox(),
+              ),
+            );
+          },
+          options: CarouselOptions(
+            autoPlay: true,
+            enlargeCenterPage: true,
+            onPageChanged: (index, reason) {},
           ),
-          error: (err, stack) => Center(
-            child: Text('Panel Err $err'),
-          ),
-          loading: () => const Center(child: CircularProgressIndicator()),
         ),
       ),
     );

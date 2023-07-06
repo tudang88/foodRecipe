@@ -11,6 +11,7 @@ import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
 import '../../common_widgets/search_widget.dart';
+import 'models/panel_recipe_list_item_model.dart';
 import 'widgets/home_page_category_item_widget.dart';
 import 'widgets/home_page_panel_widget.dart';
 
@@ -37,9 +38,7 @@ class HomePage extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HomePagePanelWidget(
-          panelItems: panelItems,
-        ),
+        createPanel(panelItems),
         SearchWidget(
           onEditCompleted: (keyword) {
             log('Keyword: $keyword');
@@ -81,6 +80,19 @@ class HomePage extends ConsumerWidget {
           },
         ),
       ],
+    );
+  }
+
+  // create Panel from remote data
+  Widget createPanel(AsyncValue<List<PanelRecipeListItemModel>> panelItems) {
+    return panelItems.when(
+      data: (items) => HomePagePanelWidget(
+        panelItems: items,
+      ),
+      error: (err, stack) => Center(
+        child: Text('Panel Err $err'),
+      ),
+      loading: () => const Center(child: CircularProgressIndicator()),
     );
   }
 }
