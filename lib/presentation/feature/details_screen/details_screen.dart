@@ -18,8 +18,8 @@ import 'widgets/details_instruction_widget.dart';
 import 'widgets/details_page_header_widget.dart';
 import 'widgets/details_title_bar_widget.dart';
 
-class DetailsPage extends BasePageStateless {
-  const DetailsPage({required this.id, Key? key}) : super(key: key);
+class DetailsScreen extends BasePageStateless {
+  const DetailsScreen({required this.id, Key? key}) : super(key: key);
   final String id;
 
   @override

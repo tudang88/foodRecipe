@@ -9,8 +9,8 @@ import '../../common_widgets/child_page_app_bar.dart';
 import 'widgets/category_page_header_widget.dart';
 import 'widgets/category_page_recipe_list_item.dart';
 
-class CategoryPage extends BasePageStateless {
-  const CategoryPage({required this.title, required this.thumbnail, Key? key})
+class CategoryScreen extends BasePageStateless {
+  const CategoryScreen({required this.title, required this.thumbnail, Key? key})
       : super(key: key);
   final String title;
   final String thumbnail;

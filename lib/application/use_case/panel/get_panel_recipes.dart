@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../data/api/api_client.dart';
 import '../../../data/repository/food_recipes_repository.dart';
-import '../../../presentation/feature/home/models/panel_recipe_list_item_model.dart';
+import '../../../presentation/feature/home_page/models/panel_recipe_list_item_model.dart';
 
 part 'get_panel_recipes.g.dart';
 

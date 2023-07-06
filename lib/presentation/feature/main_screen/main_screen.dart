@@ -8,9 +8,9 @@ import '../../../constants/resources/colors.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/database_provider.dart';
 import '../../common_widgets/base/base_page.dart';
-import '../favorite/favorite_page.dart';
-import '../home/home_page.dart';
-import '../search/search_page.dart';
+import '../favorite_page/favorite_page.dart';
+import '../home_page/home_page.dart';
+import '../search_page/search_page.dart';
 import 'widgets/main_screen_app_bar.dart';
 
 class MainScreen extends BasePage {

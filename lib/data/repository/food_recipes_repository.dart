@@ -1,7 +1,7 @@
 import '../../domain/model/api/response/get_all_categories_response.dart';
 import '../../domain/model/api/response/get_recipes_by_category_response.dart';
 import '../../domain/model/api/response/get_recipes_by_name_response.dart';
-import '../../presentation/feature/details/models/recipe_detail_item_model.dart';
+import '../../presentation/feature/details_screen/models/recipe_detail_item_model.dart';
 import '../api/api_client.dart';
 import '../database/database.dart';
 import '../database/local_db.dart';
