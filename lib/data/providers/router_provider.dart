@@ -2,8 +2,8 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../constants/routes.dart';
-import '../../presentation/feature/category/category_page.dart';
-import '../../presentation/feature/details/details_page.dart';
+import '../../presentation/feature/category_screen/category_screen.dart';
+import '../../presentation/feature/details_screen/details_screen.dart';
 import '../../presentation/feature/main_screen/main_screen.dart';
 
 part 'router_provider.g.dart';
@@ -21,7 +21,7 @@ GoRouter goRouter(ref) => GoRouter(
               name: RouteNames.categoryDetail,
               path: RoutePaths.categoryDetail,
               builder: (context, state) {
-                return CategoryPage(
+                return CategoryScreen(
                   title: state.params[RouteParams.categoryName]!,
                   thumbnail: state.params[RouteParams.categoryThumb]!,
                 );
@@ -31,7 +31,7 @@ GoRouter goRouter(ref) => GoRouter(
               name: RouteNames.recipeDetail,
               path: RoutePaths.recipeDetail,
               builder: (context, state) {
-                return DetailsPage(
+                return DetailsScreen(
                   id: state.params[RouteParams.pageId]!,
                 );
               },
