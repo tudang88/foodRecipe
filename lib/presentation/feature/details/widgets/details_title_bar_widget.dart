@@ -22,7 +22,7 @@ class DetailsTitleBarWidget extends ConsumerWidget {
           ),
           child: Text(
             title,
-            style: Constants.titleTextStyle,
+            style: AppTextStyles.titleTextStyle,
           ),
         ),
       ),

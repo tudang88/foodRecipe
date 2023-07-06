@@ -57,7 +57,7 @@ class CategoryPageRecipeListItem extends ConsumerWidget {
               child: Center(
                 child: Text(
                   recipe.recipeName,
-                  style: Constants.recipeCardTextStyle,
+                  style: AppTextStyles.recipeCardTextStyle,
                   textAlign: TextAlign.center,
                 ),
               ),

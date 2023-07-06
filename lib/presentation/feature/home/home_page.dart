@@ -57,7 +57,7 @@ class HomePage extends ConsumerWidget {
           child: Text(
             'Categories 🍱🍣',
             textAlign: TextAlign.left,
-            style: Constants.headTextStyle,
+            style: AppTextStyles.headTextStyle,
           ),
         ),
         allCategories.when(

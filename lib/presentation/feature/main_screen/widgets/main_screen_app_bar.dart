@@ -41,7 +41,7 @@ class MainScreenAppBar extends ConsumerWidget implements PreferredSizeWidget {
   Widget buildTitle(BuildContext context) {
     return const Text(
       'Food Recipe',
-      style: Constants.titleTextStyle,
+      style: AppTextStyles.titleTextStyle,
     );
   }
 

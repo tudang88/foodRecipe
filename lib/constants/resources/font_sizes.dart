@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'resources.dart';
+import '../constants.dart';
 
 enum FontSizes {
   fontSize9,

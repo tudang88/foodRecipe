@@ -39,7 +39,7 @@ class SearchPage extends ConsumerWidget {
           padding: EdgeInsets.only(left: 8, bottom: 8),
           child: Text(
             'Here you are',
-            style: Constants.headTextStyle,
+            style: AppTextStyles.headTextStyle,
           ),
         ),
         Expanded(

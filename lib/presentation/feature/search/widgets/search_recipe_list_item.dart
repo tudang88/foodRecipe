@@ -50,7 +50,7 @@ class SearchRecipeListRecipeItem extends ConsumerWidget {
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
                   recipe.recipeName,
-                  style: Constants.searchResultTextStyle,
+                  style: AppTextStyles.searchResultTextStyle,
                   textAlign: TextAlign.center,
                 ),
               ),
