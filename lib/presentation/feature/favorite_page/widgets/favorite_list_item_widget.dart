@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../constants/resources/resources.dart';
 import '../../../../constants/routes.dart';
-import '../../../common_widgets/space_box.dart';
 import '../models/favorite_item_model.dart';
+import 'favorite_item_thumbnail.dart';
 
 class FavoriteListItemWidget extends ConsumerWidget {
   const FavoriteListItemWidget({
@@ -35,21 +35,9 @@ class FavoriteListItemWidget extends ConsumerWidget {
             },
             child: Row(
               children: [
-                if (favoriteItem.recipeThumb.isNotEmpty)
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: ClipOval(
-                        child: FadeInImage.assetNetwork(
-                          placeholder: AppImages.loading,
-                          image: favoriteItem.recipeThumb,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  )
-                else
-                  const SpaceBox(),
+                FavoriteItemThumbnail(
+                  thumbnail: favoriteItem.recipeThumb,
+                ),
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
