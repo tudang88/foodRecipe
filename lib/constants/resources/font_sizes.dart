@@ -45,9 +45,10 @@ extension FontSizesExtension on FontSizes {
   }
 
   double getRelativeFontSize() {
-    final window = WidgetsBinding.instance.window;
-    final scaleFactor = MediaQueryData.fromWindow(window).size.width /
-        Constants.figmaScreenWidth;
+    // final window = WidgetsBinding.instance.window;
+    final scaleFactor =
+        WidgetsBinding.instance.platformDispatcher.textScaleFactor;
+    // MediaQueryData.fromView(window).size.width / Constants.figmaScreenWidth;
     return fontSize * (scaleFactor >= 1 ? 1 : scaleFactor);
   }
 }
