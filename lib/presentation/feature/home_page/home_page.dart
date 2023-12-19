@@ -73,15 +73,18 @@ class HomePage extends ConsumerWidget {
           error: (err, stack) => Text('Err $err'),
           loading: () => const Center(child: CircularProgressIndicator()),
           data: (categories) {
-            return SliverGrid.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
-              childAspectRatio: 1,
-              children: [
-                for (final category in categories)
-                  HomePageCategoryItemWidget(categoryItemModel: category)
-              ],
+            return SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              sliver: SliverGrid.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                childAspectRatio: 1,
+                children: [
+                  for (final category in categories)
+                    HomePageCategoryItemWidget(categoryItemModel: category)
+                ],
+              ),
             );
           },
         ),
