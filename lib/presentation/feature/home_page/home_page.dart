@@ -39,16 +39,12 @@ class HomePage extends ConsumerWidget {
       slivers: [
         SliverAppBar(
           elevation: 0,
-          pinned: true,
+          pinned: false,
           expandedHeight: 250,
           flexibleSpace: createPanel(panelItems),
         ),
         SliverAppBar(
           elevation: 0,
-          bottom: const PreferredSize(
-            preferredSize: Size.fromHeight(-10),
-            child: SizedBox(),
-          ),
           flexibleSpace: SearchWidget(
             onEditCompleted: (keyword) {
               log('Keyword: $keyword');
@@ -63,6 +59,7 @@ class HomePage extends ConsumerWidget {
           ),
         ),
         const SliverAppBar(
+          pinned: true,
           flexibleSpace: Padding(
             padding: EdgeInsets.all(8),
             child: Text(
@@ -76,17 +73,15 @@ class HomePage extends ConsumerWidget {
           error: (err, stack) => Text('Err $err'),
           loading: () => const Center(child: CircularProgressIndicator()),
           data: (categories) {
-            return Expanded(
-              child: SliverGrid.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-                childAspectRatio: 1,
-                children: [
-                  for (final category in categories)
-                    HomePageCategoryItemWidget(categoryItemModel: category)
-                ],
-              ),
+            return SliverGrid.count(
+              crossAxisCount: 2,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              childAspectRatio: 1,
+              children: [
+                for (final category in categories)
+                  HomePageCategoryItemWidget(categoryItemModel: category)
+              ],
             );
           },
         ),
