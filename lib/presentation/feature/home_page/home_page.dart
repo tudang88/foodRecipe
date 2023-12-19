@@ -35,28 +35,41 @@ class HomePage extends ConsumerWidget {
         recipesRepository: repository,
       ),
     );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        createPanel(panelItems),
-        SearchWidget(
-          onEditCompleted: (keyword) {
-            log('Keyword: $keyword');
-            if (keyword != '') {
-              // transition to Search Tab and perform search
-              ref
-                  .watch(currentTabProvider.notifier)
-                  .update((state) => MainScreenNavigation.searchPage.index);
-              ref.watch(keywordProvider.notifier).update((state) => keyword);
-            }
-          },
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          elevation: 0,
+          pinned: true,
+          expandedHeight: 250,
+          flexibleSpace: createPanel(panelItems),
         ),
-        const Padding(
-          padding: EdgeInsets.all(8),
-          child: Text(
-            'Categories 🍱🍣',
-            textAlign: TextAlign.left,
-            style: AppTextStyles.headTextStyle,
+        SliverAppBar(
+          elevation: 0,
+          bottom: const PreferredSize(
+            preferredSize: Size.fromHeight(-10),
+            child: SizedBox(),
+          ),
+          flexibleSpace: SearchWidget(
+            onEditCompleted: (keyword) {
+              log('Keyword: $keyword');
+              if (keyword != '') {
+                // transition to Search Tab and perform search
+                ref
+                    .watch(currentTabProvider.notifier)
+                    .update((state) => MainScreenNavigation.searchPage.index);
+                ref.watch(keywordProvider.notifier).update((state) => keyword);
+              }
+            },
+          ),
+        ),
+        const SliverAppBar(
+          flexibleSpace: Padding(
+            padding: EdgeInsets.all(8),
+            child: Text(
+              'Categories 🍱🍣',
+              textAlign: TextAlign.left,
+              style: AppTextStyles.headTextStyle,
+            ),
           ),
         ),
         allCategories.when(
@@ -64,12 +77,10 @@ class HomePage extends ConsumerWidget {
           loading: () => const Center(child: CircularProgressIndicator()),
           data: (categories) {
             return Expanded(
-              child: GridView.count(
-                shrinkWrap: true,
+              child: SliverGrid.count(
                 crossAxisCount: 2,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
-                padding: const EdgeInsets.all(8),
                 childAspectRatio: 1,
                 children: [
                   for (final category in categories)
