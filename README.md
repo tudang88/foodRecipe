@@ -55,8 +55,10 @@ A Flutter Sample Base on Riverpod 2.x
   ![](docs/read_recipe_details.svg) 
 * **Read favorite recipes**
   ![](docs/read_favorite_list.svg)
-  
-## 6. Reference Document
+
+## 6. Demo
+![](https://github.com/tudang88/foodRecipe/blob/main/docs/demo_ios.gif)
+## 7. Reference Document
 - [Flutter Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
   - Presentation, Application, Domain and Data Layers.
 - Freezed Code Generation
