@@ -33,23 +33,21 @@ mixin BasePageMixin {
       backgroundColor: context.colors.white,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: buildAppBar(context),
-      body: SafeArea(
-        child: WillPopScope(
-          onWillPop: Platform.isIOS ? null : onWillPop,
-          child: GestureDetector(
-            onTap: () {
-              if (tapOutsideHideKeyboard) {
-                _hideKeyboard(context);
-              }
-            },
-            child: tapOutsideHideKeyboard
-                ? SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: buildBody(context, ref),
-                  )
-                : buildBody(context, ref),
-          ),
+      body: WillPopScope(
+        onWillPop: Platform.isIOS ? null : onWillPop,
+        child: GestureDetector(
+          onTap: () {
+            if (tapOutsideHideKeyboard) {
+              _hideKeyboard(context);
+            }
+          },
+          child: tapOutsideHideKeyboard
+              ? SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: buildBody(context, ref),
+                )
+              : buildBody(context, ref),
         ),
       ),
       bottomNavigationBar: buildBottomNavigationBar(context),
