@@ -1,4 +1,4 @@
-package com.monstarlab.oss.flutter.template.flutter_template_riverpod
+package com.tudang.recipe
 
 import io.flutter.embedding.android.FlutterActivity
 

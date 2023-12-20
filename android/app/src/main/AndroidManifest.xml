@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.monstarlab.oss.flutter.template.flutter_template_riverpod">
+    package="com.tudang.recipe">
 
     <application
         android:name="${applicationName}"

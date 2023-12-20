@@ -48,7 +48,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.monstarlab.oss.flutter.template.flutter_template_riverpod"
+        applicationId "com.tudang.recipe"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
 //        minSdkVersion flutter.minSdkVersion
@@ -61,13 +61,13 @@ android {
     productFlavors {
         development {
             dimension "default"
-            applicationId "com.monstarlab.oss.flutter.template.flutter_template_riverpod.dev"
+            applicationId "com.tudang.recipe.dev"
             resValue "string", "app_name", "[DEV] Flutter Template Riverpod"
         }
 
         production {
             dimension "default"
-            applicationId "com.monstarlab.oss.flutter.template.flutter_template_riverpod"
+            applicationId "com.tudang.recipe"
             resValue "string", "app_name", "Flutter Template Riverpod"
         }
     }
