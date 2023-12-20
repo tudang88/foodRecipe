@@ -57,7 +57,7 @@ A Flutter Sample Base on Riverpod 2.x
   ![](docs/read_favorite_list.svg)
 
 ## 6. Demo
-![](https://github.com/tudang88/foodRecipe/blob/main/docs/demo_ios.gif)
+![](https://github.com/tudang88/foodRecipe/blob/main/docs/demo_ios.gif){ width=250 }
 ## 7. Reference Document
 - [Flutter Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
   - Presentation, Application, Domain and Data Layers.
