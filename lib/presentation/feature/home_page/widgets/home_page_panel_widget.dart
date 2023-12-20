@@ -20,40 +20,36 @@ class HomePagePanelWidget extends ConsumerWidget {
     return Container(
       color: Colors.white10,
       padding: const EdgeInsets.only(top: 8),
-      child: SizedBox(
-        width: double.infinity,
-        height: 200,
-        child: CarouselSlider.builder(
-          carouselController: controller,
-          itemCount: panelItems.length,
-          itemBuilder: (context, index, realIdx) {
-            final imageUrl = panelItems[index].recipeThumb;
-            final recipeId = panelItems[index].recipeId;
-            return GestureDetector(
-              onTap: () {
-                context.pushNamed(
-                  RouteNames.recipeDetail,
-                  params: {RouteParams.pageId: recipeId},
-                );
-              },
-              child: Card(
-                elevation: 5,
-                child: imageUrl.isNotEmpty
-                    ? FadeInImage.assetNetwork(
-                        placeholder: AppImages.loading,
-                        image: imageUrl,
-                        width: 800,
-                        fit: BoxFit.fill,
-                      )
-                    : const SpaceBox(),
-              ),
-            );
-          },
-          options: CarouselOptions(
-            autoPlay: true,
-            enlargeCenterPage: true,
-            onPageChanged: (index, reason) {},
-          ),
+      child: CarouselSlider.builder(
+        carouselController: controller,
+        itemCount: panelItems.length,
+        itemBuilder: (context, index, realIdx) {
+          final imageUrl = panelItems[index].recipeThumb;
+          final recipeId = panelItems[index].recipeId;
+          return GestureDetector(
+            onTap: () {
+              context.pushNamed(
+                RouteNames.recipeDetail,
+                params: {RouteParams.pageId: recipeId},
+              );
+            },
+            child: Card(
+              elevation: 5,
+              child: imageUrl.isNotEmpty
+                  ? FadeInImage.assetNetwork(
+                      placeholder: AppImages.loading,
+                      image: imageUrl,
+                      width: 800,
+                      fit: BoxFit.fill,
+                    )
+                  : const SpaceBox(),
+            ),
+          );
+        },
+        options: CarouselOptions(
+          autoPlay: true,
+          enlargeCenterPage: true,
+          onPageChanged: (index, reason) {},
         ),
       ),
     );

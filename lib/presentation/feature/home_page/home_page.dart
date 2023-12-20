@@ -21,6 +21,12 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     /// get recipes repository from river_pod provider
+    final key1 = GlobalKey();
+    final key2 = GlobalKey();
+    final key3 = GlobalKey();
+    final key4 = GlobalKey();
+    final key5 = GlobalKey();
+
     final apiClient = ref.watch(apiClientProvider);
     final repository = ref.watch(foodRecipesRepositoryProvider);
     final allCategories = ref.watch(
@@ -36,33 +42,42 @@ class HomePage extends ConsumerWidget {
       ),
     );
     return CustomScrollView(
+      key: key5,
       slivers: [
         SliverAppBar(
+          key: key1,
           elevation: 0,
           pinned: false,
           expandedHeight: 250,
           flexibleSpace: createPanel(panelItems),
         ),
-        SliverAppBar(
-          elevation: 0,
-          flexibleSpace: SearchWidget(
-            onEditCompleted: (keyword) {
-              log('Keyword: $keyword');
-              if (keyword != '') {
-                // transition to Search Tab and perform search
-                ref
-                    .watch(currentTabProvider.notifier)
-                    .update((state) => MainScreenNavigation.searchPage.index);
-                ref.watch(keywordProvider.notifier).update((state) => keyword);
-              }
-            },
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          sliver: SliverAppBar(
+            key: key2,
+            elevation: 0,
+            flexibleSpace: SearchWidget(
+              onEditCompleted: (keyword) {
+                log('Keyword: $keyword');
+                if (keyword != '') {
+                  // transition to Search Tab and perform search
+                  ref
+                      .watch(currentTabProvider.notifier)
+                      .update((state) => MainScreenNavigation.searchPage.index);
+                  ref
+                      .watch(keywordProvider.notifier)
+                      .update((state) => keyword);
+                }
+              },
+            ),
           ),
         ),
-        const SliverAppBar(
-          pinned: true,
-          flexibleSpace: Padding(
-            padding: EdgeInsets.all(8),
-            child: Text(
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          sliver: SliverAppBar(
+            key: key3,
+            pinned: true,
+            flexibleSpace: const Text(
               'Categories 🍱🍣',
               textAlign: TextAlign.left,
               style: AppTextStyles.headTextStyle,
@@ -70,10 +85,12 @@ class HomePage extends ConsumerWidget {
           ),
         ),
         allCategories.when(
-          error: (err, stack) => Text('Err $err'),
-          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (err, stack) => SliverToBoxAdapter(child: Text('Err $err')),
+          loading: () => const SliverToBoxAdapter(
+              child: Center(child: CircularProgressIndicator())),
           data: (categories) {
             return SliverPadding(
+              key: key4,
               padding: const EdgeInsets.symmetric(horizontal: 8),
               sliver: SliverGrid.count(
                 crossAxisCount: 2,
@@ -98,9 +115,7 @@ class HomePage extends ConsumerWidget {
       data: (items) => HomePagePanelWidget(
         panelItems: items,
       ),
-      error: (err, stack) => Center(
-        child: Text('Panel Err $err'),
-      ),
+      error: (err, stack) => Text('Panel Err $err'),
       loading: () => const Center(child: CircularProgressIndicator()),
     );
   }

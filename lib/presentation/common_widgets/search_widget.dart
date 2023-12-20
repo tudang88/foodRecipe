@@ -6,23 +6,20 @@ class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-      child: TextField(
-        controller: controller,
-        textAlignVertical: TextAlignVertical.center,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.search),
-          hintText: 'Enter a recipe',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+    return TextField(
+      controller: controller,
+      textAlignVertical: TextAlignVertical.center,
+      decoration: InputDecoration(
+        prefixIcon: const Icon(Icons.search),
+        hintText: 'Enter a recipe',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-        onEditingComplete: () {
-          onEditCompleted!(controller.text);
-          _hideKeyboard(context);
-        },
       ),
+      onEditingComplete: () {
+        onEditCompleted!(controller.text);
+        _hideKeyboard(context);
+      },
     );
   }
 
