@@ -58,6 +58,7 @@ A Flutter Sample Base on Riverpod 2.x
 
 ## 6. Demo
 <img src="docs/demo_ios.gif" width="250"/>
+
 ## 7. Reference Document
 - [Flutter Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
   - Presentation, Application, Domain and Data Layers.
