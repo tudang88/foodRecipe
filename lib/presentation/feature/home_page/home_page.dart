@@ -77,10 +77,13 @@ class HomePage extends ConsumerWidget {
           sliver: SliverAppBar(
             key: key3,
             pinned: true,
-            flexibleSpace: const Text(
-              'Categories 🍱🍣',
-              textAlign: TextAlign.left,
-              style: AppTextStyles.headTextStyle,
+            flexibleSpace: Container(
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                'Categories 🍱🍣',
+                textAlign: TextAlign.left,
+                style: AppTextStyles.headTextStyle,
+              ),
             ),
           ),
         ),
