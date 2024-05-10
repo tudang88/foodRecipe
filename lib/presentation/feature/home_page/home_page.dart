@@ -10,16 +10,17 @@ import '../../../constants/routes.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
+import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/search_widget.dart';
 import 'models/panel_recipe_list_item_model.dart';
 import 'widgets/home_page_category_item_widget.dart';
 import 'widgets/home_page_panel_widget.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends BasePageStateless {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget buildBody(BuildContext context, WidgetRef ref) {
     /// get recipes repository from river_pod provider
     final key1 = GlobalKey();
     final key2 = GlobalKey();

@@ -16,7 +16,7 @@ mixin BasePageMixin {
 
   Widget buildBody(BuildContext context, WidgetRef ref);
 
-  PreferredSizeWidget? buildAppBar(BuildContext context);
+  PreferredSizeWidget? buildAppBar(BuildContext context) => null;
 
   Widget? buildBottomNavigationBar(BuildContext context) => null;
 

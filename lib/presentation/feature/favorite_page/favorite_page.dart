@@ -5,13 +5,14 @@ import '../../../application/use_case/favorites/get_all_favorite_items.dart';
 import '../../../application/use_case/favorites/remove_favorite_from_db.dart';
 import '../../../data/providers/database_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
+import '../../common_widgets/base/base_page_stateless.dart';
 import 'widgets/favorite_list_item_widget.dart';
 
-class FavoritePage extends ConsumerWidget {
+class FavoritePage extends BasePageStateless {
   const FavoritePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget buildBody(BuildContext context, WidgetRef ref) {
     final database = ref.watch(favoriteDbProvider);
     final repository = ref.watch(foodRecipesRepositoryProvider);
 

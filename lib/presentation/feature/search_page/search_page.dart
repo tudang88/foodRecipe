@@ -8,16 +8,17 @@ import '../../../constants/resources/resources.dart';
 import '../../../data/providers/api_client_provider.dart';
 import '../../../data/providers/common_provider.dart';
 import '../../../data/providers/food_recipes_repository_provider.dart';
+import '../../common_widgets/base/base_page_stateless.dart';
 import '../../common_widgets/search_widget.dart';
 import 'widgets/search_recipe_list_item.dart';
 
-class SearchPage extends ConsumerWidget {
+class SearchPage extends BasePageStateless {
   const SearchPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget buildBody(BuildContext context, WidgetRef ref) {
     final repository = ref.watch(foodRecipesRepositoryProvider);
     final apiClient = ref.watch(apiClientProvider);
     final searchResult = ref.watch(
