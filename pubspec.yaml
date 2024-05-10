@@ -1,5 +1,5 @@
-name: flutter_template_riverpod
-description: MonstarLab Flutter Template w/Riverpod
+name: food_recipe
+description: The app build base on riverpod
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
