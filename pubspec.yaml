@@ -6,7 +6,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.2 <3.3.0'
+  sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
   flutter:
@@ -57,7 +57,7 @@ dev_dependencies:
   # Generate interface to APIs
   retrofit_generator: '>=4.0.0 <5.0.0'
   # Generate providers for Riverpod
-  intl: ^0.18.0
+  intl: ^0.19.0
   riverpod_generator: ^1.0.6
   mockito: ^5.3.2
   # support generating code for drift database

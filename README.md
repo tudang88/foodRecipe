@@ -6,7 +6,7 @@ A Flutter Sample Base on Riverpod 2.x
 * This is a sample applied the template public at [RiverPod Template](https://github.com/monstar-lab-oss/flutter-template-riverpod)
 * The main function of the application will be as following
   * Show the available recipes on Screens which the data fetch from RecipeAPI www.themealdb.com
-  * Allow user to search by inputing recipe name or related keyword
+  * Allow user to search by inputting recipe name or related keyword
   * Allow user to browse all available recipes of a certain category
   * Allow user to read the detail of a recipe
   * Allow user to mark a recipe to favorites list or remove from favorite list
@@ -29,7 +29,7 @@ A Flutter Sample Base on Riverpod 2.x
   | No | Layer Name | Description|
   |----|------------|-------------|
   |1   | presentation| The UI and UI interaction implementation Layer|
-  |2 | application | All the usecase are covered here. The Presentation Layer will interact with Data layer for each specific usecase via this layer.
+  |2 | application | All the use case are covered here. The Presentation Layer will interact with Data layer for each specific usecase via this layer.
   |3 | model | All the data for Network Data and Local Database Data are implement here. The Application and Data layer will use this model for it's logic.
   | 4 | data | all data control including query network or local database are incharged by this layer.
 * The structure of the application would be as following
