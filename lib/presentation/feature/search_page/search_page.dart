@@ -59,7 +59,7 @@ class SearchPage extends BasePageStateless {
             error: (err, stack) => Text('Err $err'),
             loading: () => const Center(child: CircularProgressIndicator()),
           ),
-        )
+        ),
       ],
     );
   }

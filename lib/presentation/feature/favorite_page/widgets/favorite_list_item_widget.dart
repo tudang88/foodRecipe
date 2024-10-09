@@ -67,7 +67,7 @@ class FavoriteListItemWidget extends ConsumerWidget {
           TextButton(
             onPressed: onclick,
             child: const Text('Remove'),
-          )
+          ),
         ],
       ),
     );

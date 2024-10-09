@@ -50,10 +50,10 @@ class CategoryScreen extends BasePageStateless {
                   for (final recipe in recipesShortLists)
                     CategoryPageRecipeListItem(
                       recipe: recipe,
-                    )
+                    ),
                 ],
               ),
-            )
+            ),
           ],
         );
       },

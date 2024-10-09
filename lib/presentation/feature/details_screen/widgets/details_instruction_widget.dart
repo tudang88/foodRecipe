@@ -32,7 +32,7 @@ class DetailsInstructionWidget extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(instruction),
-            )
+            ),
           ],
         ),
       ),

@@ -37,7 +37,7 @@ class CategoryPageHeaderWidget extends ConsumerWidget {
               style: AppTextStyles.titleTextStyle,
             ),
           ),
-        )
+        ),
       ],
     );
   }

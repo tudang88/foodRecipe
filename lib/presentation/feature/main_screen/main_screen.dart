@@ -25,7 +25,7 @@ class _MainScreenState extends BasePageState<MainScreen>
   final List _screens = [
     const HomePage(),
     const SearchPage(),
-    const FavoritePage()
+    const FavoritePage(),
   ];
 
   @override

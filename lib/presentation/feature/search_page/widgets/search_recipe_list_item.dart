@@ -54,7 +54,7 @@ class SearchRecipeListRecipeItem extends ConsumerWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -31,7 +31,7 @@ class DetailsIngredientsWidget extends ConsumerWidget {
             ),
             IngredientLineWidget(
               ingredient: ingredients,
-            )
+            ),
           ],
         ),
       ),

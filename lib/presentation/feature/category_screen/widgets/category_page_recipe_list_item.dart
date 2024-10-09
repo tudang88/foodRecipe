@@ -61,7 +61,7 @@ class CategoryPageRecipeListItem extends ConsumerWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

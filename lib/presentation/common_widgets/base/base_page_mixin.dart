@@ -12,7 +12,7 @@ mixin BasePageMixin {
 
   Color? get backgroundColor => null;
 
-  Future<bool> onWillPop() async => true;
+  void onWillPop(bool canPop) => true;
 
   Widget buildBody(BuildContext context, WidgetRef ref);
 
@@ -33,8 +33,8 @@ mixin BasePageMixin {
       backgroundColor: context.colors.white,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: buildAppBar(context),
-      body: WillPopScope(
-        onWillPop: Platform.isIOS ? null : onWillPop,
+      body: PopScope(
+        onPopInvoked: Platform.isIOS ? null : onWillPop,
         child: GestureDetector(
           onTap: () {
             if (tapOutsideHideKeyboard) {

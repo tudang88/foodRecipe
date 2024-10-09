@@ -91,7 +91,10 @@ class HomePage extends BasePageStateless {
         allCategories.when(
           error: (err, stack) => SliverToBoxAdapter(child: Text('Err $err')),
           loading: () => const SliverToBoxAdapter(
-              child: Center(child: CircularProgressIndicator())),
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
           data: (categories) {
             return SliverPadding(
               key: key4,
@@ -103,7 +106,7 @@ class HomePage extends BasePageStateless {
                 childAspectRatio: 1,
                 children: [
                   for (final category in categories)
-                    HomePageCategoryItemWidget(categoryItemModel: category)
+                    HomePageCategoryItemWidget(categoryItemModel: category),
                 ],
               ),
             );

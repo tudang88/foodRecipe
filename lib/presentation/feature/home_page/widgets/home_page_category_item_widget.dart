@@ -22,7 +22,7 @@ class HomePageCategoryItemWidget extends ConsumerWidget {
         RouteNames.categoryDetail,
         params: {
           RouteParams.categoryName: categoryItemModel.title,
-          RouteParams.categoryThumb: categoryItemModel.imageUrl
+          RouteParams.categoryThumb: categoryItemModel.imageUrl,
         },
       ),
       child: GridTile(

@@ -69,8 +69,10 @@ class FoodRecipesRepository {
     await database.deleteFavorite(recipeId);
   }
 
-  Future<bool> isExistedItem(
-      {required Database database, required String id}) async {
+  Future<bool> isExistedItem({
+    required Database database,
+    required String id,
+  }) async {
     return database.isExistedItem(id);
   }
 }
