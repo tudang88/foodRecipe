@@ -37,7 +37,7 @@ class _AppState extends ConsumerState<App> {
     return Builder(
       builder: (context) {
         return MaterialApp.router(
-          // debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           theme: Themes.appTheme(Brightness.light),
